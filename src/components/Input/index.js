@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input({ name, placeholder, type, text }) {
+function Input({ name, placeholder, type, text, ...args }) {
     return (
         <div className="row">
           <label htmlFor={name}>{text}</label>
@@ -8,6 +8,7 @@ function Input({ name, placeholder, type, text }) {
             type={type}
             name={name}
             placeholder={placeholder}
+            {...args}
           />
         </div>
     )
