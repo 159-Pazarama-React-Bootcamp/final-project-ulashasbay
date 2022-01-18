@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 function AdminLoginPage() {
   return (
     <div className="admin-login-container">
-      <h1>Login</h1>
+      <h1>Giriş Yap</h1>
       <form className="login-form">
         <Input
           name="email"
