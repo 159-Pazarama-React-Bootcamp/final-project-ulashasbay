@@ -90,6 +90,12 @@
   .login-button:hover {
     background: #fd3ea7;
   }
+
+  .login-errors {
+    margin-top: 0;
+    font-size: 14px;
+    color: red;
+  }
   
   @media (max-width: 960px) {
     .admin-login-container {

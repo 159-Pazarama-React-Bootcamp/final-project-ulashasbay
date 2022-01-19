@@ -2,7 +2,7 @@ import React from 'react'
 
 function Input({ name, placeholder, type, text, ...args }) {
     return (
-        <div className="row">
+        <>
           <label htmlFor={name}>{text}</label>
           <input
             type={type}
@@ -10,7 +10,7 @@ function Input({ name, placeholder, type, text, ...args }) {
             placeholder={placeholder}
             {...args}
           />
-        </div>
+        </>
     )
 }
 
