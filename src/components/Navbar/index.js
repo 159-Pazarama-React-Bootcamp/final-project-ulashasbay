@@ -21,6 +21,15 @@ function Navbar() {
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
             <Link
+              to="/"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
+              Anasayfa
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
               to="/basvuru-olustur"
               className="nav-links"
               onClick={closeMobileMenu}

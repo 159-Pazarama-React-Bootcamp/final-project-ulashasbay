@@ -8,7 +8,7 @@ import "./index.css";
 import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
 
-function ApplicationPage() {
+function ApplicationFormPage() {
 
   let navigate = useNavigate();
 
@@ -132,4 +132,4 @@ function ApplicationPage() {
   );
 }
 
-export default ApplicationPage;
+export default ApplicationFormPage;

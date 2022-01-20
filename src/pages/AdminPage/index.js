@@ -43,7 +43,7 @@ function AdminPage() {
     const unsubscribe = onSnapshot(userColRef, (snapshot) =>
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     );
-    unsubscribe;
+    return unsubscribe;
   }, []);
 
   return (

@@ -2,16 +2,38 @@ import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
 import ApplicationStatusVal from "../../schema/ApplicationStatusVal";
+import {
+  doc,
+  getDoc,
+} from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { useApp } from "../../context/appContext";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 
-function ApplicationStatusPage() {
+function ApplicationCheckPage() {
+  
+  let navigate = useNavigate();
+  const { setAppInfo, setAppId } = useApp(); 
+
+  const getUser = async (id) => {
+    const noteSnapshot = await getDoc(doc(db, "applications", id));
+    if (noteSnapshot.exists()) {
+      await setAppId(id);
+      await setAppInfo(noteSnapshot.data());
+      navigate(`/basvuru/${id}`);
+    } else {
+      console.log("Böyle bir kullanıcı bulunmuyor");
+    }
+  };
+
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
         basvuruNo: "",
       },
-      onSubmit: (values) => {
-        console.log(values);
+      onSubmit:(values) => {
+        getUser(values.basvuruNo);
       },
       validationSchema: ApplicationStatusVal,
     }
@@ -41,4 +63,4 @@ function ApplicationStatusPage() {
   );
 }
 
-export default ApplicationStatusPage;
+export default ApplicationCheckPage;
