@@ -2,9 +2,26 @@ import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
 import ApplicationVal from "../../schema/ApplicationVal";
+import { collection, addDoc } from "firebase/firestore"
+import { db } from '../../config/firebase';
 import "./index.css";
+import { useApp } from "../../context/appContext";
+import { useNavigate } from "react-router-dom";
 
 function ApplicationPage() {
+
+  let navigate = useNavigate();
+
+  const { setAppId, setAppInfo } = useApp();
+
+  const userColRef = collection(db, "applications")
+  const createUser = async (data) => {
+    const docRef = await addDoc(userColRef, data);
+    // console.log(docRef.id)
+    await setAppId(docRef.id)
+    await setAppInfo(data)
+    navigate(`/basvuru-olumlu`)  
+  };
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
     initialValues: {
       ad: "",
@@ -14,9 +31,10 @@ function ApplicationPage() {
       basvuruNedeni: "",
       adres: "",
       fotograf: "",
+      basvuruSonuc: "Beklemede"
     },
     onSubmit: (values) => {
-      console.log(values);
+      createUser(values)
     },
     validationSchema: ApplicationVal,
   });

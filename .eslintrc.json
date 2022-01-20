@@ -26,5 +26,9 @@
         "react": {
           "version": "detect"
         }
-    }
+    }, 
+    "globals": {
+            "process": true
+          }
+    
 }
