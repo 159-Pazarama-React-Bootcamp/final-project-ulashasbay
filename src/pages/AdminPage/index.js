@@ -9,20 +9,22 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateAppId } from "../../redux/appId/appIdSlice";
+import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 
 function AdminPage() {
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const userColRef = collection(db, "applications");
-  const { setAppInfo, setAppId } = useApp();
 
   const getUser = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
-      await setAppId(id);
-      await setAppInfo(noteSnapshot.data());
+      dispatch(updateAppId(id));
+      dispatch(updateUserInfo(noteSnapshot.data()));
       navigate(`/admin/basvuru/${id}`);
     } else {
       console.log("Böyle bir kullanıcı bulunmuyor");

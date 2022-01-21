@@ -1,20 +1,24 @@
 import React from "react";
-import { useApp } from "../../context/appContext";
+import { useSelector } from "react-redux";
 
 function AppInfoArea() {
-    const { appId, appInfo } = useApp();
+  const appIdValue = useSelector((state) => state.appId.value);
+  const userInfoValue = useSelector((state) => state.userInfo.value);
+
   return (
     <>
-      <div className="row-app-show-page">Başvuru No: {appId}</div>
-      <div className="row-app-show-page">Ad: {appInfo.ad}</div>
-      <div className="row-app-show-page">Yaş: {appInfo.yas}</div>
-      <div className="row-app-show-page">T.C Kimlik No: {appInfo.tcNo}</div>
+      <div className="row-app-show-page">Başvuru No: {appIdValue}</div>
+      <div className="row-app-show-page">Ad: {userInfoValue.ad}</div>
+      <div className="row-app-show-page">Yaş: {userInfoValue.yas}</div>
       <div className="row-app-show-page">
-        Başvuru Nedeni: {appInfo.basvuruNedeni}
+        T.C Kimlik No: {userInfoValue.tcNo}
       </div>
-      <div className="row-app-show-page">Adres: {appInfo.adres} </div>
       <div className="row-app-show-page">
-        Başvuru Sonucu: {appInfo.basvuruSonuc}
+        Başvuru Nedeni: {userInfoValue.basvuruNedeni}
+      </div>
+      <div className="row-app-show-page">Adres: {userInfoValue.adres} </div>
+      <div className="row-app-show-page">
+        Başvuru Sonucu: {userInfoValue.basvuruSonuc}
       </div>
     </>
   );

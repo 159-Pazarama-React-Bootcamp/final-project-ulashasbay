@@ -4,19 +4,24 @@ import Input from "../../components/Input";
 import ApplicationCheckVal from "../../schema/ApplicationCheckVal";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
+import { useDispatch } from "react-redux";
+import { updateAppId } from "../../redux/appId/appIdSlice";
+import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
+
 function ApplicationCheckPage() {
+  const dispatch = useDispatch();
+
   let navigate = useNavigate();
-  const { setAppInfo, setAppId } = useApp();
 
   const getUser = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
-      await setAppId(id);
-      await setAppInfo(noteSnapshot.data());
+      // redux
+      dispatch(updateAppId(id));
+      dispatch(updateUserInfo(noteSnapshot.data()));
       navigate(`/basvuru/${id}`);
     } else {
       console.log("Böyle bir kullanıcı bulunmuyor");

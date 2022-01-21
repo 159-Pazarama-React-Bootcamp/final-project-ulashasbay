@@ -1,5 +1,4 @@
 import React from "react";
-import { useApp } from "../../context/appContext";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
@@ -7,12 +6,15 @@ import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
 import AppInfoArea from "../../components/appInfoArea";
 
+import { useSelector } from "react-redux";
+
 import "./index.css";
 
 function AdminViewUserPage() {
   let navigate = useNavigate();
-  const { appId } = useApp();
 
+  const appIdValue = useSelector((state) => state.appId.value)
+  
   const handleClickBack = () => {
     navigate("/admin/basvuru-listesi");
   };
@@ -31,7 +33,7 @@ function AdminViewUserPage() {
         basvuruSonuc: "",
       },
       onSubmit: (values) => {
-        updateNote(appId, values.basvuruSonuc);
+        updateNote(appIdValue, values.basvuruSonuc);
       },
       validationSchema: AdminViewUserVal,
     }

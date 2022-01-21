@@ -5,21 +5,26 @@ import ApplicationFormPage from "../pages/ApplicationFormPage";
 import AdminPage from "../pages/AdminPage";
 import ApplicationStatusPage from "../pages/ApplicationStatusPage";
 import AdminViewUserPage from "../pages/AdminViewUserPage";
-import { useApp } from "../context/appContext";
 import HomePage from "../pages/HomePage";
 import ApplicationCheckPage from "../pages/ApplicationCheckPage";
 
+import { useSelector } from "react-redux";
+
 function Router() {
-  const { appId } = useApp();
+  const appIdValue = useSelector((state) => state.appId.value);
+
   return (
     <>
       <Routes>
         <Route
-          path={`/admin/basvuru/${appId}`}
+          path={`/admin/basvuru/${appIdValue}`}
           element={<AdminViewUserPage />}
         />
         <Route path="basvuru-olumlu" element={<ApplicationStatusPage />} />
-        <Route path={`/basvuru/${appId}`} element={<ApplicationStatusPage />} />
+        <Route
+          path={`/basvuru/${appIdValue}`}
+          element={<ApplicationStatusPage />}
+        />
         <Route path="admin/basvuru-listesi" element={<AdminPage />} />
         <Route path="admin" element={<AdminLoginPage />} />
         <Route path="basvuru-olustur" element={<ApplicationFormPage />} />

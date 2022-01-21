@@ -5,22 +5,25 @@ import ApplicationFormVal from "../../schema/ApplicationFormVal";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import "./index.css";
-import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
 
-function ApplicationFormPage() {
-  let navigate = useNavigate();
+import { useDispatch } from "react-redux";
+import { updateAppId } from "../../redux/appId/appIdSlice";
+import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 
-  const { setAppId, setAppInfo } = useApp();
+function ApplicationFormPage() {
+  const dispatch = useDispatch();
+
+  let navigate = useNavigate();
 
   const userColRef = collection(db, "applications");
   const createUser = async (data) => {
     const docRef = await addDoc(userColRef, data);
-    // console.log(docRef.id)
-    await setAppId(docRef.id);
-    await setAppInfo(data);
+    dispatch(updateAppId(docRef.id));
+    dispatch(updateUserInfo(data));
     navigate(`/basvuru-olumlu`);
   };
+
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
