@@ -1,29 +1,33 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./index.css";
-import { collection, deleteDoc, doc, onSnapshot, getDoc } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
-
 
 function AdminPage() {
   let navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const userColRef = collection(db, "applications");
-  const { setUserInfo, setAppId } = useApp();
-  
+  const { setAppInfo, setAppId } = useApp();
+
   const getUser = async (id) => {
-    const noteSnapshot = await getDoc(doc(db, 'applications', id));
+    const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
-        await setAppId(id)
-        await setUserInfo(noteSnapshot.data());
-        navigate(`/admin/basvuru/${id}`)
-        
+      await setAppId(id);
+      await setAppInfo(noteSnapshot.data());
+      navigate(`/admin/basvuru/${id}`);
     } else {
-        console.log("Böyle bir kullanıcı bulunmuyor");
+      console.log("Böyle bir kullanıcı bulunmuyor");
     }
-};
+  };
 
   const deleteUser = async (id) => {
     const userDoc = doc(db, "applications", id);

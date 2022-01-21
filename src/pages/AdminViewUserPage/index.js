@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
+import AppInfoArea from "../../components/appInfoArea";
 
 import "./index.css";
 
 function AdminViewUserPage() {
   let navigate = useNavigate();
-  const { appId, userInfo } = useApp();
+  const { appId } = useApp();
 
   const handleClickBack = () => {
     navigate("/admin/basvuru-listesi");
@@ -40,19 +41,7 @@ function AdminViewUserPage() {
       <div className="admin-login-container">
         <h1>Kullanıcı Başvuru Bilgileri</h1>
         <form className="show-application-status" onSubmit={handleSubmit}>
-          <div className="row-app-show-page">Başvuru No: {appId}</div>
-          <div className="row-app-show-page">Ad: {userInfo.ad}</div>
-          <div className="row-app-show-page">Yaş: {userInfo.yas}</div>
-          <div className="row-app-show-page">
-            T.C Kimlik No: {userInfo.tcNo}
-          </div>
-          <div className="row-app-show-page">
-            Başvuru Nedeni: {userInfo.basvuruNedeni}
-          </div>
-          <div className="row-app-show-page">Adres: {userInfo.adres} </div>
-          <div className="row-app-show-page">
-            Başvuru Sonucu: {userInfo.basvuruSonuc}
-          </div>
+          <AppInfoArea />
           <div className="row">
             <label htmlFor="basvuruSonuc">Yanıt</label>
             <textarea

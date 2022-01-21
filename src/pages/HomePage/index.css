@@ -17,14 +17,14 @@
   margin: 0 auto;
 }
 .home-row h1 {
-    font-size: 60px;
-    margin-bottom: 60px;
-    color: #0137f3;
+  font-size: 60px;
+  margin-bottom: 60px;
+  color: #0137f3;
 }
 
 .home-row p {
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .content-wrapper {
@@ -54,7 +54,7 @@
 }
 
 .btn-home:hover {
-    background: #03249e;
+  background: #03249e;
 }
 
 /* a {
@@ -69,8 +69,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  
-
   .hero {
     background-image: linear-gradient(
       180deg,

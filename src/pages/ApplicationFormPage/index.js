@@ -1,43 +1,44 @@
 import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
-import ApplicationVal from "../../schema/ApplicationVal";
-import { collection, addDoc } from "firebase/firestore"
-import { db } from '../../config/firebase';
+import ApplicationFormVal from "../../schema/ApplicationFormVal";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
 import "./index.css";
 import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
 
 function ApplicationFormPage() {
-
   let navigate = useNavigate();
 
   const { setAppId, setAppInfo } = useApp();
 
-  const userColRef = collection(db, "applications")
+  const userColRef = collection(db, "applications");
   const createUser = async (data) => {
     const docRef = await addDoc(userColRef, data);
     // console.log(docRef.id)
-    await setAppId(docRef.id)
-    await setAppInfo(data)
-    navigate(`/basvuru-olumlu`)  
+    await setAppId(docRef.id);
+    await setAppInfo(data);
+    navigate(`/basvuru-olumlu`);
   };
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik({
-    initialValues: {
-      ad: "",
-      soyad: "",
-      yas: "",
-      tcNo: "",
-      basvuruNedeni: "",
-      adres: "",
-      fotograf: "",
-      basvuruSonuc: "Beklemede"
-    },
-    onSubmit: (values) => {
-      createUser(values)
-    },
-    validationSchema: ApplicationVal,
-  });
+  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
+    {
+      initialValues: {
+        ad: "",
+        soyad: "",
+        yas: "",
+        tcNo: "",
+        basvuruNedeni: "",
+        adres: "",
+        fotograf: "",
+        basvuruSonuc: "Beklemede",
+      },
+      onSubmit: (values) => {
+        createUser(values);
+      },
+      validationSchema: ApplicationFormVal,
+    }
+  );
   return (
     <div className="admin-login-container">
       <h1>Başvuru Formu</h1>
@@ -110,7 +111,12 @@ function ApplicationFormPage() {
         </div>
         <div className="row">
           <label htmlFor="adres">Adres</label>
-          <textarea name="adres" placeholder="Adres" onChange={handleChange} onBlur={handleBlur} />
+          <textarea
+            name="adres"
+            placeholder="Adres"
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
           {errors.adres && touched.adres && (
             <span className="login-errors">{errors.adres}</span>
           )}
@@ -123,7 +129,7 @@ function ApplicationFormPage() {
             placeholder="Fotoğraf"
             onChange={handleChange}
           />
-        </div> 
+        </div>
         <button className="login-button" type="submit">
           Gönder
         </button>

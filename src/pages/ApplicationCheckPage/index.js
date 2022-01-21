@@ -1,20 +1,16 @@
 import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
-import ApplicationStatusVal from "../../schema/ApplicationStatusVal";
-import {
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import ApplicationCheckVal from "../../schema/ApplicationCheckVal";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useApp } from "../../context/appContext";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 function ApplicationCheckPage() {
-  
   let navigate = useNavigate();
-  const { setAppInfo, setAppId } = useApp(); 
+  const { setAppInfo, setAppId } = useApp();
 
   const getUser = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
@@ -32,10 +28,10 @@ function ApplicationCheckPage() {
       initialValues: {
         basvuruNo: "",
       },
-      onSubmit:(values) => {
+      onSubmit: (values) => {
         getUser(values.basvuruNo);
       },
-      validationSchema: ApplicationStatusVal,
+      validationSchema: ApplicationCheckVal,
     }
   );
   return (

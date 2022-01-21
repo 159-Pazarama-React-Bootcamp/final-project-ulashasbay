@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 function HomePage() {
-    
   let navigate = useNavigate();
 
   const handleClick = () => {
