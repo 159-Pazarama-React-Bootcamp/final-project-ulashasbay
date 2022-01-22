@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavLoginButton from "../NavLoginButton";
 import PazaramaIcon from "../../assets/svg/PazaramaIcon";
 import "./index.css";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { updateIsLoggedIn } from "../../redux/isLoggedIn/isLoggedInSlice";
 
 function Navbar() {
+  let navigate = useNavigate();
+
+  const isLoggedInValue = useSelector((state) => state.isLoggedIn.value);
+  const dispatch = useDispatch();
+
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    dispatch(updateIsLoggedIn(false));
+    navigate("/");
+    closeMobileMenu();
+  };
 
   return (
     <>
@@ -33,6 +50,17 @@ function Navbar() {
               Başvuru Yap
             </Link>
           </li>
+          {isLoggedInValue && (
+            <li className="nav-item">
+              <Link
+                to="/admin/basvuru-listesi"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Başvuru Listesi
+              </Link>
+            </li>
+          )}
           <li className="nav-item">
             <Link
               to="/basvuru-sorgula"
@@ -42,17 +70,32 @@ function Navbar() {
               Başvuru Sorgula
             </Link>
           </li>
-          <li>
-            <Link
-              to="/admin"
-              className="nav-links-mobile"
-              onClick={closeMobileMenu}
-            >
-              Giriş
-            </Link>
-          </li>
+          {!isLoggedInValue ? (
+            <li>
+              <Link
+                to="/admin"
+                className="nav-links-mobile"
+                onClick={closeMobileMenu}
+              >
+                Giriş
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/" className="nav-links-mobile" onClick={handleLogout}>
+                Çıkış
+              </Link>
+            </li>
+          )}
         </ul>
-        <NavLoginButton />
+
+        {!isLoggedInValue ? (
+          <NavLoginButton text="Giriş" to="/admin" />
+        ) : (
+          <button className="btn" onClick={handleLogout}>
+            Çıkış
+          </button>
+        )}
       </nav>
     </>
   );

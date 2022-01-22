@@ -7,7 +7,7 @@ import ApplicationStatusPage from "../pages/ApplicationStatusPage";
 import AdminViewUserPage from "../pages/AdminViewUserPage";
 import HomePage from "../pages/HomePage";
 import ApplicationCheckPage from "../pages/ApplicationCheckPage";
-
+import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
 
 function Router() {
@@ -16,16 +16,20 @@ function Router() {
   return (
     <>
       <Routes>
-        <Route
-          path={`/admin/basvuru/${appIdValue}`}
-          element={<AdminViewUserPage />}
-        />
+        <Route element={<PrivateRoute />}>
+          <Route
+            path={`/admin/basvuru/${appIdValue}`}
+            element={<AdminViewUserPage />}
+          />
+        </Route>
         <Route path="basvuru-olumlu" element={<ApplicationStatusPage />} />
         <Route
           path={`/basvuru/${appIdValue}`}
           element={<ApplicationStatusPage />}
         />
-        <Route path="admin/basvuru-listesi" element={<AdminPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="admin/basvuru-listesi" element={<AdminPage />} />
+        </Route>
         <Route path="admin" element={<AdminLoginPage />} />
         <Route path="basvuru-olustur" element={<ApplicationFormPage />} />
         <Route path="basvuru-sorgula" element={<ApplicationCheckPage />} />

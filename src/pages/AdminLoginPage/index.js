@@ -3,8 +3,15 @@ import { useFormik } from "formik";
 import Input from "../../components/Input";
 import "./index.css";
 import AdminLoginVal from "../../schema/AdminLoginVal";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateIsLoggedIn } from "../../redux/isLoggedIn/isLoggedInSlice";
 
 function AdminLoginPage() {
+  let navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
@@ -12,11 +19,20 @@ function AdminLoginPage() {
         password: "",
       },
       onSubmit: (values) => {
-        console.log(values);
+        if (
+          values.username === "kodluyoruz" &&
+          values.password === "bootcamp109"
+        ) {
+          localStorage.setItem("username", "kodluyoruz");
+          localStorage.setItem("password", "bootcamp109");
+          dispatch(updateIsLoggedIn(true));
+          navigate("/admin/basvuru-listesi");
+        }
       },
       validationSchema: AdminLoginVal,
     }
   );
+
   return (
     <div className="admin-login-container">
       <h1>Giriş Yap</h1>

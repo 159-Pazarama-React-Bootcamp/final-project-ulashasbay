@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-function NavLoginButton() {
+function NavLoginButton({ text, to, ...args}) {
   return (
-    <Link to="admin">
-      <button className="btn">Giriş</button>
+    <Link to={to}>
+      <button className="btn" {...args}>{text}</button>
     </Link>
   );
 }
