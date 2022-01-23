@@ -13,7 +13,6 @@ function App() {
     const localPassword = localStorage.getItem("password");
     if (localUsername === "kodluyoruz" && localPassword === "bootcamp109") {
       dispatch(updateIsLoggedIn(true));
-      console.log("heyo");
     } else {
       dispatch(updateIsLoggedIn(false));
     }

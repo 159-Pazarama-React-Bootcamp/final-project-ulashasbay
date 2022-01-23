@@ -20,6 +20,26 @@
   background-color: #d1e8f5;
 }
 
+.table-delete-btn {
+  color: #ffffff;
+  background-color: #e70101;
+  border-color: red ;
+}
+
+.table-delete-btn:hover {
+  background-color: #f33434;
+}
+
+.table-view-btn {
+  color: #ffffff;
+  background-color: #05cc1f;
+  border-color: rgb(73, 248, 38) ;
+}
+
+.table-view-btn:hover {
+  background-color: #22e23c;
+}
+
 /*responsive*/
 
 @media (max-width: 500px) {

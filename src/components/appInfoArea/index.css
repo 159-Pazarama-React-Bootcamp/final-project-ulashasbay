@@ -3,3 +3,9 @@
   flex-direction: column;
   margin-bottom: 20px;
 }
+
+.app-info-area-img {
+  width: 100px;
+  margin-left: 125px;
+  border: solid 1px;
+}

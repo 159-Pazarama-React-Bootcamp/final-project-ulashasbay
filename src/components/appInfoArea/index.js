@@ -7,18 +7,46 @@ function AppInfoArea() {
 
   return (
     <>
-      <div className="row-app-show-page">Başvuru No: {appIdValue}</div>
-      <div className="row-app-show-page">Ad: {userInfoValue.ad}</div>
-      <div className="row-app-show-page">Yaş: {userInfoValue.yas}</div>
+      {!(userInfoValue.fotograf === "") && (
+        <img
+          className="app-info-area-img"
+          width="100px"
+          style={{ marginLeft: "125px", border: "solid 1px" }}
+          src={userInfoValue.fotograf}
+          alt="img"
+        />
+      )}
       <div className="row-app-show-page">
-        T.C Kimlik No: {userInfoValue.tcNo}
+        <b>Başvuru No: </b>
+        {appIdValue}
       </div>
       <div className="row-app-show-page">
-        Başvuru Nedeni: {userInfoValue.basvuruNedeni}
+        <b>Ad: </b>
+        {userInfoValue.ad}
       </div>
-      <div className="row-app-show-page">Adres: {userInfoValue.adres} </div>
       <div className="row-app-show-page">
-        Başvuru Sonucu: {userInfoValue.basvuruSonuc}
+        <b>Soyad: </b>
+        {userInfoValue.soyad}
+      </div>
+      <div className="row-app-show-page">
+        <b>Yaş: </b>
+        {userInfoValue.yas}
+      </div>
+      <div className="row-app-show-page">
+        <b>T.C Kimlik No: </b>
+        {userInfoValue.tcNo}
+      </div>
+      <div className="row-app-show-page">
+        <b>Başvuru Nedeni: </b>
+        {userInfoValue.basvuruNedeni}
+      </div>
+      <div className="row-app-show-page">
+        <b>Adres: </b>
+        {userInfoValue.adres}
+      </div>
+      <div className="row-app-show-page">
+        <b>Başvuru Sonucu: </b>
+        {userInfoValue.basvuruSonuc}
       </div>
     </>
   );

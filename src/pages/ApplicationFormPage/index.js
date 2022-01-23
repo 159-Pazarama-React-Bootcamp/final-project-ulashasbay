@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
 import ApplicationFormVal from "../../schema/ApplicationFormVal";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../config/firebase";
-import "./index.css";
+import { db, storage } from "../../config/firebase";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-
 import { useDispatch } from "react-redux";
 import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
+import "./index.css";
 
 function ApplicationFormPage() {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  let navigate = useNavigate();
+  const [imageUrl, setImageUrl] = useState("");
+  const [uploadProgres, setUploadProgress] = useState("");
+
+  const fileOnChange = (e) => {
+    const file = e.target.files[0];
+    const storageRef = ref(storage, `files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setUploadProgress(prog);
+      },
+      (error) => console.log(error),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImageUrl(downloadURL);
+        });
+      }
+    );
+  };
 
   const userColRef = collection(db, "applications");
   const createUser = async (data) => {
@@ -33,10 +56,11 @@ function ApplicationFormPage() {
         tcNo: "",
         basvuruNedeni: "",
         adres: "",
-        fotograf: "",
+        fotograf: imageUrl,
         basvuruSonuc: "Beklemede",
       },
       onSubmit: (values) => {
+        values.fotograf = imageUrl;
         createUser(values);
       },
       validationSchema: ApplicationFormVal,
@@ -130,8 +154,13 @@ function ApplicationFormPage() {
             type="file"
             text="Fotoğraf"
             placeholder="Fotoğraf"
-            onChange={handleChange}
+            onChange={fileOnChange}
           />
+          {!(uploadProgres === "") && (
+            <span className="file-upload-progress">
+              Dosya Yükleniyor: %{uploadProgres}
+            </span>
+          )}
         </div>
         <button className="login-button" type="submit">
           Gönder

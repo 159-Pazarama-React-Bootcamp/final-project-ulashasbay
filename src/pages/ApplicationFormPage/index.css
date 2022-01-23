@@ -96,6 +96,11 @@
   font-size: 14px;
   color: red;
 }
+.file-upload-progress {
+  margin-top: 0;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+}
 
 @media (max-width: 960px) {
   .admin-login-container {

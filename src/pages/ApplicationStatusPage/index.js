@@ -1,5 +1,5 @@
 import React from "react";
-import AppInfoArea from "../../components/appInfoArea";
+import AppInfoArea from "../../components/AppInfoArea";
 import "./index.css";
 
 function ApplicationStatusPage() {

@@ -15,8 +15,8 @@ import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 
 function AdminPage() {
-  const dispatch = useDispatch();
   let navigate = useNavigate();
+  const dispatch = useDispatch();
   const [users, setUsers] = useState([]);
   const userColRef = collection(db, "applications");
 
@@ -36,15 +36,6 @@ function AdminPage() {
     await deleteDoc(userDoc);
   };
 
-  //   useEffect(() => {
-  //     const getUser = async () => {
-  //       const data = await getDocs(userColRef);
-  //       setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //     };
-  //     return getUser();
-  //   }, []);
-
-  // snapshot
   useEffect(() => {
     const unsubscribe = onSnapshot(userColRef, (snapshot) =>
       setUsers(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
@@ -61,7 +52,7 @@ function AdminPage() {
           <th>Soyad</th>
           <th>Başvuru No</th>
           <th>Başvuru Durumu</th>
-          <th>Görüntü</th>
+          <th>İşlemler</th>
         </tr>
       </thead>
       <tbody>
@@ -73,9 +64,9 @@ function AdminPage() {
               <td data-label="Soyad">{item.soyad}</td>
               <td data-label="Başvuru No">{item.id}</td>
               <td data-label="Başvuru Durumu">{item.basvuruSonuc}</td>
-              <td data-label="Görüntü">
-                <button onClick={() => deleteUser(item.id)}>delete</button>
-                <button onClick={() => getUser(item.id)}>View</button>
+              <td data-label="İşlemler">
+                <button className="table-delete-btn" onClick={() => deleteUser(item.id)}>delete</button>
+                <button className="table-view-btn" onClick={() => getUser(item.id)}>Görüntüle</button>
               </td>
             </tr>
           );

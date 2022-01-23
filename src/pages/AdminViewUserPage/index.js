@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
-import AppInfoArea from "../../components/appInfoArea";
+import AppInfoArea from "../../components/AppInfoArea";
 
 import { useSelector } from "react-redux";
 
