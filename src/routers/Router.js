@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import AdminLoginPage from "../pages/AdminLoginPage";
 import ApplicationFormPage from "../pages/ApplicationFormPage";
 import AdminPage from "../pages/AdminPage";
-import ApplicationStatusPage from "../pages/ApplicationStatusPage";
-import AdminViewUserPage from "../pages/AdminViewUserPage";
+import ApplicationInfoPage from "../pages/ApplicationInfoPage";
+import AdminUserInfoPage from "../pages/AdminUserInfoPage";
 import HomePage from "../pages/HomePage";
-import ApplicationCheckPage from "../pages/ApplicationCheckPage";
+import ApplicationNoCheckPage from "../pages/ApplicationNoCheckPage";
 import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
 
@@ -19,20 +19,20 @@ function Router() {
         <Route element={<PrivateRoute />}>
           <Route
             path={`/admin/basvuru/${appIdValue}`}
-            element={<AdminViewUserPage />}
+            element={<AdminUserInfoPage />}
           />
         </Route>
-        <Route path="basvuru-olumlu" element={<ApplicationStatusPage />} />
+        <Route path="basvuru-basarili" element={<ApplicationInfoPage />} />
         <Route
           path={`/basvuru/${appIdValue}`}
-          element={<ApplicationStatusPage />}
+          element={<ApplicationInfoPage />}
         />
         <Route element={<PrivateRoute />}>
           <Route path="admin/basvuru-listesi" element={<AdminPage />} />
         </Route>
         <Route path="admin" element={<AdminLoginPage />} />
         <Route path="basvuru-olustur" element={<ApplicationFormPage />} />
-        <Route path="basvuru-sorgula" element={<ApplicationCheckPage />} />
+        <Route path="basvuru-sorgula" element={<ApplicationNoCheckPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </>

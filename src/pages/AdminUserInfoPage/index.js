@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 import "./index.css";
 
-function AdminViewUserPage() {
+function AdminUserInfoPage() {
   let navigate = useNavigate();
 
   const appIdValue = useSelector((state) => state.appId.value)
@@ -40,11 +40,11 @@ function AdminViewUserPage() {
   );
   return (
     <div>
-      <div className="admin-login-container">
+      <div className="admin-app-info-container">
         <h1>Kullanıcı Başvuru Bilgileri</h1>
-        <form className="show-application-status" onSubmit={handleSubmit}>
+        <form className="admin-app-info" onSubmit={handleSubmit}>
           <AppInfoArea />
-          <div className="row">
+          <div className="admin-user-row">
             <label htmlFor="basvuruSonuc">Yanıt</label>
             <textarea
               name="basvuruSonuc"
@@ -53,7 +53,7 @@ function AdminViewUserPage() {
               onBlur={handleBlur}
             />
             {errors.basvuruSonuc && touched.basvuruSonuc && (
-              <span className="login-errors">{errors.basvuruSonuc}</span>
+              <span className="admin-user-errors">{errors.basvuruSonuc}</span>
             )}
           </div>
           <button className="accept-button" type="submit">
@@ -72,4 +72,4 @@ function AdminViewUserPage() {
   );
 }
 
-export default AdminViewUserPage;
+export default AdminUserInfoPage;

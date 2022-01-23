@@ -50,8 +50,9 @@ function AdminPage() {
           <th>S.No</th>
           <th>Ad</th>
           <th>Soyad</th>
+          <th>Yaş</th>
           <th>Başvuru No</th>
-          <th>Başvuru Durumu</th>
+          <th>Başvuru Sonucu</th>
           <th>İşlemler</th>
         </tr>
       </thead>
@@ -62,10 +63,11 @@ function AdminPage() {
               <td data-label="S.No">{users.indexOf(item) + 1}</td>
               <td data-label="Ad">{item.ad}</td>
               <td data-label="Soyad">{item.soyad}</td>
+              <td data-label="Yaş">{item.yas}</td>
               <td data-label="Başvuru No">{item.id}</td>
-              <td data-label="Başvuru Durumu">{item.basvuruSonuc}</td>
+              <td data-label="Başvuru Sonucu">{item.basvuruSonuc}</td>
               <td data-label="İşlemler">
-                <button className="table-delete-btn" onClick={() => deleteUser(item.id)}>delete</button>
+                <button className="table-delete-btn" onClick={() => deleteUser(item.id)}>Delete</button>
                 <button className="table-view-btn" onClick={() => getUser(item.id)}>Görüntüle</button>
               </td>
             </tr>

@@ -37,7 +37,7 @@ function AdminLoginPage() {
     <div className="admin-login-container">
       <h1>Giriş Yap</h1>
       <form className="login-form" onSubmit={handleSubmit}>
-        <div className="row">
+        <div className="login-row">
           <Input
             name="username"
             type="text"
@@ -50,7 +50,7 @@ function AdminLoginPage() {
             <span className="login-errors">{errors.username}</span>
           )}
         </div>
-        <div className="row">
+        <div className="login-row">
           <Input
             name="password"
             type="password"

@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 
-function ApplicationCheckPage() {
+function ApplicationNoCheckPage() {
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -40,10 +40,10 @@ function ApplicationCheckPage() {
     }
   );
   return (
-    <div className="admin-login-container">
+    <div className="app-check-container">
       <h1>Başvuru Sorgula</h1>
-      <form className="application-status-form" onSubmit={handleSubmit}>
-        <div className="row">
+      <form className="application-check-form" onSubmit={handleSubmit}>
+        <div className="app-check-row">
           <Input
             name="basvuruNo"
             type="text"
@@ -53,10 +53,10 @@ function ApplicationCheckPage() {
             onBlur={handleBlur}
           />
           {errors.basvuruNo && touched.basvuruNo && (
-            <span className="login-errors">{errors.basvuruNo}</span>
+            <span className="app-check-errors">{errors.basvuruNo}</span>
           )}
         </div>
-        <button className="login-button" type="submit">
+        <button className="app-check-button" type="submit">
           Başvuru Sorgula
         </button>
       </form>
@@ -64,4 +64,4 @@ function ApplicationCheckPage() {
   );
 }
 
-export default ApplicationCheckPage;
+export default ApplicationNoCheckPage;

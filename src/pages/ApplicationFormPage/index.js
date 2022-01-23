@@ -44,7 +44,7 @@ function ApplicationFormPage() {
     const docRef = await addDoc(userColRef, data);
     dispatch(updateAppId(docRef.id));
     dispatch(updateUserInfo(data));
-    navigate(`/basvuru-olumlu`);
+    navigate(`/basvuru-basarili`);
   };
 
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
@@ -67,11 +67,11 @@ function ApplicationFormPage() {
     }
   );
   return (
-    <div className="admin-login-container">
+    <div className="application-form-container">
       <h1>Başvuru Formu</h1>
 
       <form className="application-form" onSubmit={handleSubmit}>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="ad"
             type="text"
@@ -81,10 +81,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.ad && touched.ad && (
-            <span className="login-errors">{errors.ad}</span>
+            <span className="app-form-errors">{errors.ad}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="soyad"
             type="text"
@@ -94,10 +94,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.soyad && touched.soyad && (
-            <span className="login-errors">{errors.soyad}</span>
+            <span className="app-form-errors">{errors.soyad}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="yas"
             type="text"
@@ -107,10 +107,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.yas && touched.yas && (
-            <span className="login-errors">{errors.yas}</span>
+            <span className="app-form-errors">{errors.yas}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="tcNo"
             type="text"
@@ -120,10 +120,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.tcNo && touched.tcNo && (
-            <span className="login-errors">{errors.tcNo}</span>
+            <span className="app-form-errors">{errors.tcNo}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="basvuruNedeni"
             type="text"
@@ -133,10 +133,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.basvuruNedeni && touched.basvuruNedeni && (
-            <span className="login-errors">{errors.basvuruNedeni}</span>
+            <span className="app-form-errors">{errors.basvuruNedeni}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <label htmlFor="adres">Adres</label>
           <textarea
             name="adres"
@@ -145,10 +145,10 @@ function ApplicationFormPage() {
             onBlur={handleBlur}
           />
           {errors.adres && touched.adres && (
-            <span className="login-errors">{errors.adres}</span>
+            <span className="app-form-errors">{errors.adres}</span>
           )}
         </div>
-        <div className="row">
+        <div className="application-form-row">
           <Input
             name="fotograf"
             type="file"

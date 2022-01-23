@@ -2,12 +2,12 @@ import React from "react";
 import AppInfoArea from "../../components/AppInfoArea";
 import "./index.css";
 
-function ApplicationStatusPage() {
+function ApplicationInfoPage() {
   return (
     <div>
-      <div className="admin-login-container">
+      <div className="app-info-container">
         <h1>Başvuru Bilgileri</h1>
-        <div className="show-application-status">
+        <div className="app-info-status">
           <AppInfoArea />
         </div>
       </div>
@@ -15,4 +15,4 @@ function ApplicationStatusPage() {
   );
 }
 
-export default ApplicationStatusPage;
+export default ApplicationInfoPage;
