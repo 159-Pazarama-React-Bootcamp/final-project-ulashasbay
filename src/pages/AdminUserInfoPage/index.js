@@ -5,6 +5,7 @@ import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
 import AppInfoArea from "../../components/AppInfoArea";
+import Navbar from "../../components/Navbar";
 
 import { useSelector } from "react-redux";
 
@@ -39,7 +40,8 @@ function AdminUserInfoPage() {
     }
   );
   return (
-    <div>
+    <>
+      <Navbar />
       <div className="admin-app-info-container">
         <h1>Kullanıcı Başvuru Bilgileri</h1>
         <form className="admin-app-info" onSubmit={handleSubmit}>
@@ -68,7 +70,7 @@ function AdminUserInfoPage() {
           </button>
         </form>
       </div>
-    </div>
+    </>
   );
 }
 

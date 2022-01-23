@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
+import Navbar from "../../components/Navbar";
 import ApplicationCheckVal from "../../schema/ApplicationCheckVal";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
@@ -40,27 +41,30 @@ function ApplicationNoCheckPage() {
     }
   );
   return (
-    <div className="app-check-container">
-      <h1>Başvuru Sorgula</h1>
-      <form className="application-check-form" onSubmit={handleSubmit}>
-        <div className="app-check-row">
-          <Input
-            name="basvuruNo"
-            type="text"
-            text="Başvuru Numarası"
-            placeholder="Başvuru No"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.basvuruNo && touched.basvuruNo && (
-            <span className="app-check-errors">{errors.basvuruNo}</span>
-          )}
-        </div>
-        <button className="app-check-button" type="submit">
-          Başvuru Sorgula
-        </button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="app-check-container">
+        <h1>Başvuru Sorgula</h1>
+        <form className="application-check-form" onSubmit={handleSubmit}>
+          <div className="app-check-row">
+            <Input
+              name="basvuruNo"
+              type="text"
+              text="Başvuru Numarası"
+              placeholder="Başvuru No"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.basvuruNo && touched.basvuruNo && (
+              <span className="app-check-errors">{errors.basvuruNo}</span>
+            )}
+          </div>
+          <button className="app-check-button" type="submit">
+            Başvuru Sorgula
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

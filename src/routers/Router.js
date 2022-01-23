@@ -7,6 +7,7 @@ import ApplicationInfoPage from "../pages/ApplicationInfoPage";
 import AdminUserInfoPage from "../pages/AdminUserInfoPage";
 import HomePage from "../pages/HomePage";
 import ApplicationNoCheckPage from "../pages/ApplicationNoCheckPage";
+import NotFoundPage from "../pages/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
 
@@ -34,6 +35,7 @@ function Router() {
         <Route path="basvuru-olustur" element={<ApplicationFormPage />} />
         <Route path="basvuru-sorgula" element={<ApplicationNoCheckPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

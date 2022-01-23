@@ -24,6 +24,7 @@
   color: #ffffff;
   background-color: #e70101;
   border-color: red ;
+  cursor: pointer;
 }
 
 .table-delete-btn:hover {
@@ -34,6 +35,7 @@
   color: #ffffff;
   background-color: #05cc1f;
   border-color: rgb(73, 248, 38) ;
+  cursor: pointer;
 }
 
 .table-view-btn:hover {
@@ -41,7 +43,6 @@
 }
 
 /*responsive*/
-
 @media (max-width: 500px) {
   .table thead {
     display: none;

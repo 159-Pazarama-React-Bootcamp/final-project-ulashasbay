@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar";
 import "./index.css";
 
 function HomePage() {
@@ -10,6 +11,7 @@ function HomePage() {
   };
   return (
     <>
+      <Navbar />
       <div className="home-row">
         <div className="content-wrapper ">
           <img

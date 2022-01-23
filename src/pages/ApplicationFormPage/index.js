@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
+import Navbar from "../../components/Navbar";
 import ApplicationFormVal from "../../schema/ApplicationFormVal";
 import { collection, addDoc } from "firebase/firestore";
 import { db, storage } from "../../config/firebase";
@@ -67,106 +68,108 @@ function ApplicationFormPage() {
     }
   );
   return (
-    <div className="application-form-container">
-      <h1>Başvuru Formu</h1>
-
-      <form className="application-form" onSubmit={handleSubmit}>
-        <div className="application-form-row">
-          <Input
-            name="ad"
-            type="text"
-            text="Ad"
-            placeholder="Ad"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.ad && touched.ad && (
-            <span className="app-form-errors">{errors.ad}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="soyad"
-            type="text"
-            text="Soyad"
-            placeholder="Soyad"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.soyad && touched.soyad && (
-            <span className="app-form-errors">{errors.soyad}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="yas"
-            type="text"
-            text="Yaş"
-            placeholder="Yaş"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.yas && touched.yas && (
-            <span className="app-form-errors">{errors.yas}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="tcNo"
-            type="text"
-            text="TC Kimlik No"
-            placeholder="TC Kimlik No"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.tcNo && touched.tcNo && (
-            <span className="app-form-errors">{errors.tcNo}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="basvuruNedeni"
-            type="text"
-            text="Başvuru Nedeni"
-            placeholder="Başvuru Nedeni"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.basvuruNedeni && touched.basvuruNedeni && (
-            <span className="app-form-errors">{errors.basvuruNedeni}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <label htmlFor="adres">Adres</label>
-          <textarea
-            name="adres"
-            placeholder="Adres"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.adres && touched.adres && (
-            <span className="app-form-errors">{errors.adres}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="fotograf"
-            type="file"
-            text="Fotoğraf"
-            placeholder="Fotoğraf"
-            onChange={fileOnChange}
-          />
-          {!(uploadProgres === "") && (
-            <span className="file-upload-progress">
-              Dosya Yükleniyor: %{uploadProgres}
-            </span>
-          )}
-        </div>
-        <button className="login-button" type="submit">
-          Gönder
-        </button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="application-form-container">
+        <h1>Başvuru Formu</h1>
+        <form className="application-form" onSubmit={handleSubmit}>
+          <div className="application-form-row">
+            <Input
+              name="ad"
+              type="text"
+              text="Ad"
+              placeholder="Ad"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.ad && touched.ad && (
+              <span className="app-form-errors">{errors.ad}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <Input
+              name="soyad"
+              type="text"
+              text="Soyad"
+              placeholder="Soyad"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.soyad && touched.soyad && (
+              <span className="app-form-errors">{errors.soyad}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <Input
+              name="yas"
+              type="text"
+              text="Yaş"
+              placeholder="Yaş"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.yas && touched.yas && (
+              <span className="app-form-errors">{errors.yas}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <Input
+              name="tcNo"
+              type="text"
+              text="TC Kimlik No"
+              placeholder="TC Kimlik No"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.tcNo && touched.tcNo && (
+              <span className="app-form-errors">{errors.tcNo}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <Input
+              name="basvuruNedeni"
+              type="text"
+              text="Başvuru Nedeni"
+              placeholder="Başvuru Nedeni"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.basvuruNedeni && touched.basvuruNedeni && (
+              <span className="app-form-errors">{errors.basvuruNedeni}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <label htmlFor="adres">Adres</label>
+            <textarea
+              name="adres"
+              placeholder="Adres"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.adres && touched.adres && (
+              <span className="app-form-errors">{errors.adres}</span>
+            )}
+          </div>
+          <div className="application-form-row">
+            <Input
+              name="fotograf"
+              type="file"
+              text="Fotoğraf"
+              placeholder="Fotoğraf"
+              onChange={fileOnChange}
+            />
+            {!(uploadProgres === "") && (
+              <span className="file-upload-progress">
+                Dosya Yükleniyor: %{uploadProgres}
+              </span>
+            )}
+          </div>
+          <button className="login-button" type="submit">
+            Gönder
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

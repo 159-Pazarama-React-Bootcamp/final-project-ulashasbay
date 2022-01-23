@@ -1,5 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import Router from "./routers/Router";
 import { useDispatch } from "react-redux";
@@ -20,7 +19,6 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
       <Router />
     </div>
   );
