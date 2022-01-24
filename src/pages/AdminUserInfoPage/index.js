@@ -21,6 +21,7 @@ function AdminUserInfoPage() {
     const appRef = doc(db, "applications", id);
     await updateDoc(appRef, {
       basvuruSonuc: change,
+      basvuruDurumu: "Yanıtlandı",
     });
     navigate("/admin/basvuru-listesi");
   };

@@ -56,8 +56,10 @@ function ApplicationFormPage() {
         tcNo: "",
         basvuruNedeni: "",
         adres: "",
+        basvuruDurumu: "Bekliyor",
         fotograf: imageUrl,
-        basvuruSonuc: "Beklemede",
+        basvuruSonuc: "Yanıt Bekleniyor",
+        basvuruTarihi: new Date().toLocaleString().slice(0, 10),
       },
       onSubmit: (values) => {
         values.fotograf = imageUrl;

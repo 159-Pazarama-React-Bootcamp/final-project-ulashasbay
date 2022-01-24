@@ -18,7 +18,6 @@ function ApplicationNoCheckPage() {
   const getUser = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
-      // redux
       dispatch(updateAppId(id));
       dispatch(updateUserInfo(noteSnapshot.data()));
       navigate(`/basvuru/${id}`);

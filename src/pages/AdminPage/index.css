@@ -23,7 +23,7 @@
 .table-delete-btn {
   color: #ffffff;
   background-color: #e70101;
-  border-color: red ;
+  border-color: red;
   cursor: pointer;
 }
 
@@ -34,12 +34,57 @@
 .table-view-btn {
   color: #ffffff;
   background-color: #05cc1f;
-  border-color: rgb(73, 248, 38) ;
+  border-color: rgb(73, 248, 38);
   cursor: pointer;
 }
 
 .table-view-btn:hover {
   background-color: #22e23c;
+}
+
+/*  select menü */
+
+.select-dropdown,
+.select-dropdown * {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.select-dropdown {
+  position: relative;
+  background-color: #eaebec;
+  border-radius: 4px;
+  width: 140px;
+}
+.select-dropdown select {
+  font-size: 1rem;
+  font-weight: normal;
+  max-width: 100%;
+  padding: 8px 24px 8px 10px;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.select-dropdown select:active,
+.select-dropdown select:focus {
+  outline: none;
+  box-shadow: none;
+}
+.select-dropdown:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  width: 0;
+  height: 0;
+  margin-top: -2px;
+  border-top: 5px solid #aaa;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
 }
 
 /*responsive*/
