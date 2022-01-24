@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
+import FormSubmitBtn from "../../components/FormSubmitBtn";
+import TextArea from "../../components/TextArea";
 import ApplicationFormVal from "../../schema/ApplicationFormVal";
 import { collection, addDoc } from "firebase/firestore";
 import { db, storage } from "../../config/firebase";
@@ -138,8 +140,8 @@ function ApplicationFormPage() {
           )}
         </div>
         <div className="application-form-row">
-          <label htmlFor="adres">Adres</label>
-          <textarea
+          <TextArea
+            text="Adres"
             name="adres"
             placeholder="Adres"
             onChange={handleChange}
@@ -163,9 +165,7 @@ function ApplicationFormPage() {
             </span>
           )}
         </div>
-        <button className="login-button" type="submit">
-          Gönder
-        </button>
+        <FormSubmitBtn text="Gönder" />
       </form>
     </div>
   );

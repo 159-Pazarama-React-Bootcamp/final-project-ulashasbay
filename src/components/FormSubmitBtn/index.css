@@ -1,0 +1,16 @@
+.app-check-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background: #ff008b;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 15px;
+}
+
+.app-check-button:hover {
+  background: #fd3ea7;
+}

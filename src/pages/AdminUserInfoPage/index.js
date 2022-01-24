@@ -5,6 +5,7 @@ import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
 import AppInfoArea from "../../components/AppInfoArea";
+import TextArea from "../../components/TextArea";
 import { useSelector } from "react-redux";
 import "./index.css";
 
@@ -43,13 +44,13 @@ function AdminUserInfoPage() {
       <form className="admin-app-info" onSubmit={handleSubmit}>
         <AppInfoArea />
         <div className="admin-user-row">
-          <label htmlFor="basvuruSonuc">Yanıt</label>
-          <textarea
+          <TextArea
+            text="Yanıt"
             name="basvuruSonuc"
             placeholder="Yanıt"
             onChange={handleChange}
             onBlur={handleBlur}
-          />
+          />          
           {errors.basvuruSonuc && touched.basvuruSonuc && (
             <span className="admin-user-errors">{errors.basvuruSonuc}</span>
           )}

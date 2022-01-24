@@ -1,11 +1,12 @@
 import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
-import "./index.css";
+import FormSubmitBtn from "../../components/FormSubmitBtn";
 import AdminLoginVal from "../../schema/AdminLoginVal";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateIsLoggedIn } from "../../redux/isLoggedIn/isLoggedInSlice";
+import "./index.css";
 
 function AdminLoginPage() {
   let navigate = useNavigate();
@@ -64,9 +65,7 @@ function AdminLoginPage() {
               <span className="login-errors">{errors.password}</span>
             )}
           </div>
-          <button className="login-button" type="submit">
-            Giriş
-          </button>
+          <FormSubmitBtn text="Giriş" />
         </form>
       </div>
     </>

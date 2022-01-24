@@ -54,7 +54,7 @@
 }
 .select-dropdown {
   position: relative;
-  background-color: #eaebec;
+  background-color: #ececea;
   border-radius: 4px;
   width: 140px;
 }
@@ -88,7 +88,7 @@
 }
 
 /*responsive*/
-@media (max-width: 500px) {
+@media (max-width: 820px) {
   .table thead {
     display: none;
   }
@@ -98,7 +98,6 @@
   .table tr,
   .table td {
     display: block;
-    width: 100%;
   }
   .table tr {
     margin-bottom: 15px;

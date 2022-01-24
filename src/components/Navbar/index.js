@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavLoginButton from "../NavLoginButton";
+import NavbarBtn from "../NavbarBtn";
 import PazaramaIcon from "../../assets/svg/PazaramaIcon";
-import "./index.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { updateIsLoggedIn } from "../../redux/isLoggedIn/isLoggedInSlice";
+import "./index.css";
 
 function Navbar() {
   let navigate = useNavigate();
@@ -90,11 +90,9 @@ function Navbar() {
         </ul>
 
         {!isLoggedInValue ? (
-          <NavLoginButton text="Giriş" to="/admin" />
+          <NavbarBtn text="Giriş" onClick={() => navigate("/admin")} />
         ) : (
-          <button className="btn" onClick={handleLogout}>
-            Çıkış
-          </button>
+          <NavbarBtn text="Çıkış" onClick={handleLogout} />
         )}
       </nav>
     </>
