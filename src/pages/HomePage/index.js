@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 import "./index.css";
 
 function HomePage() {
@@ -10,27 +9,24 @@ function HomePage() {
     navigate("/basvuru-olustur");
   };
   return (
-    <>
-      <Navbar />
-      <div className="home-row">
-        <div className="content-wrapper ">
-          <img
-            className="home-img"
-            src="https://www.entegrabilisim.com/uploads/images/yafgm-ss9od.jpg"
-          />
-        </div>
-        <div className="content-wrapper">
-          <h1 className="home-header">Bizimle Çalışmak İster misiniz?</h1>
-          <p>
-            Pazarama bünyesinde satıcı, çalışan veya stajyer olarak işe başlamak
-            için hemen başvur!
-          </p>
-          <button className="btn-home" onClick={handleClick}>
-            Hemen Başvur!
-          </button>
-        </div>
+    <div className="home-row">
+      <div className="content-wrapper ">
+        <img
+          className="home-img"
+          src="https://www.entegrabilisim.com/uploads/images/yafgm-ss9od.jpg"
+        />
       </div>
-    </>
+      <div className="content-wrapper">
+        <h1 className="home-header">Bizimle Çalışmak İster misiniz?</h1>
+        <p>
+          Pazarama bünyesinde satıcı, çalışan veya stajyer olarak işe başlamak
+          için hemen başvur!
+        </p>
+        <button className="btn-home" onClick={handleClick}>
+          Hemen Başvur!
+        </button>
+      </div>
+    </div>
   );
 }
 

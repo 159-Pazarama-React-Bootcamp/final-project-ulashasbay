@@ -1,7 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
-import Navbar from "../../components/Navbar";
 import "./index.css";
 import AdminLoginVal from "../../schema/AdminLoginVal";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +35,6 @@ function AdminLoginPage() {
 
   return (
     <>
-      <Navbar />
       <div className="admin-login-container">
         <h1>Giriş Yap</h1>
         <form className="login-form" onSubmit={handleSubmit}>

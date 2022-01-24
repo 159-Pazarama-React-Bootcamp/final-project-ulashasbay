@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./index.css";
-import Navbar from "../../components/Navbar";
 import {
   collection,
   deleteDoc,
@@ -46,7 +45,6 @@ function AdminPage() {
 
   return (
     <>
-      <Navbar />
       <table className="table">
         <thead>
           <tr>

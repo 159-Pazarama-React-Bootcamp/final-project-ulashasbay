@@ -5,17 +5,14 @@ import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
 import AppInfoArea from "../../components/AppInfoArea";
-import Navbar from "../../components/Navbar";
-
 import { useSelector } from "react-redux";
-
 import "./index.css";
 
 function AdminUserInfoPage() {
   let navigate = useNavigate();
 
-  const appIdValue = useSelector((state) => state.appId.value)
-  
+  const appIdValue = useSelector((state) => state.appId.value);
+
   const handleClickBack = () => {
     navigate("/admin/basvuru-listesi");
   };
@@ -40,37 +37,34 @@ function AdminUserInfoPage() {
     }
   );
   return (
-    <>
-      <Navbar />
-      <div className="admin-app-info-container">
-        <h1>Kullanıcı Başvuru Bilgileri</h1>
-        <form className="admin-app-info" onSubmit={handleSubmit}>
-          <AppInfoArea />
-          <div className="admin-user-row">
-            <label htmlFor="basvuruSonuc">Yanıt</label>
-            <textarea
-              name="basvuruSonuc"
-              placeholder="Yanıt"
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {errors.basvuruSonuc && touched.basvuruSonuc && (
-              <span className="admin-user-errors">{errors.basvuruSonuc}</span>
-            )}
-          </div>
-          <button className="accept-button" type="submit">
-            Gönder
-          </button>
-          <button
-            className="reject-button"
-            type="button"
-            onClick={handleClickBack}
-          >
-            Geri
-          </button>
-        </form>
-      </div>
-    </>
+    <div className="admin-app-info-container">
+      <h1>Kullanıcı Başvuru Bilgileri</h1>
+      <form className="admin-app-info" onSubmit={handleSubmit}>
+        <AppInfoArea />
+        <div className="admin-user-row">
+          <label htmlFor="basvuruSonuc">Yanıt</label>
+          <textarea
+            name="basvuruSonuc"
+            placeholder="Yanıt"
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {errors.basvuruSonuc && touched.basvuruSonuc && (
+            <span className="admin-user-errors">{errors.basvuruSonuc}</span>
+          )}
+        </div>
+        <button className="accept-button" type="submit">
+          Gönder
+        </button>
+        <button
+          className="reject-button"
+          type="button"
+          onClick={handleClickBack}
+        >
+          Geri
+        </button>
+      </form>
+    </div>
   );
 }
 
