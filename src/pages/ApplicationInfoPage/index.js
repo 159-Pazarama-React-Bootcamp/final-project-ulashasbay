@@ -1,5 +1,5 @@
 import React from "react";
-import AppInfoArea from "../../components/AppInfoArea";
+import AppInfoField from "../../components/AppInfoField";
 import "./index.css";
 
 function ApplicationInfoPage() {
@@ -7,7 +7,7 @@ function ApplicationInfoPage() {
     <div className="app-info-container">
       <h1>Başvuru Bilgileri</h1>
       <div className="app-info-status">
-        <AppInfoArea />
+        <AppInfoField />
       </div>
     </div>
   );

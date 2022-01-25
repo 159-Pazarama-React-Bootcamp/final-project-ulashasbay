@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import AdminViewUserVal from "../../schema/AdminViewUserVal";
-import AppInfoArea from "../../components/AppInfoArea";
+import AppInfoField from "../../components/AppInfoField";
 import TextArea from "../../components/TextArea";
 import { useSelector } from "react-redux";
 import "./index.css";
@@ -42,7 +42,7 @@ function AdminUserInfoPage() {
     <div className="admin-app-info-container">
       <h1>Kullanıcı Başvuru Bilgileri</h1>
       <form className="admin-app-info" onSubmit={handleSubmit}>
-        <AppInfoArea />
+        <AppInfoField />
         <div className="admin-user-row">
           <TextArea
             text="Yanıt"

@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function AppInfoArea() {
+function AppInfoField() {
   const appIdValue = useSelector((state) => state.appId.value);
   const userInfoValue = useSelector((state) => state.userInfo.value);
 
@@ -11,7 +11,7 @@ function AppInfoArea() {
         <img
           className="app-info-area-img"
           width="100px"
-          style={{ marginLeft: "125px", border: "solid 1px" }}
+          style={{ marginLeft: "36%", border: "solid 1px" }}
           src={userInfoValue.fotograf}
           alt="img"
         />
@@ -52,4 +52,4 @@ function AppInfoArea() {
   );
 }
 
-export default AppInfoArea;
+export default AppInfoField;
