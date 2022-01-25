@@ -56,8 +56,8 @@ function AdminLoginPage() {
             <Input
               name="password"
               type="password"
-              text="Password"
-              placeholder="password"
+              text="Şifre"
+              placeholder="Şifre"
               onChange={handleChange}
               onBlur={handleBlur}
             />

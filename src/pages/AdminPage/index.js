@@ -88,7 +88,7 @@ function AdminPage() {
                       className="table-delete-btn"
                       onClick={() => deleteUser(item.id)}
                     >
-                      Delete
+                      Sil
                     </button>
                     <button
                       className="table-view-btn"

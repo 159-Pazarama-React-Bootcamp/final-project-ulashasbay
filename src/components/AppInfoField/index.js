@@ -17,35 +17,35 @@ function AppInfoField() {
         />
       )}
       <div className="row-app-show-page">
-        <b>Başvuru No: </b>
+        <b>Başvuru No:</b>
         {appIdValue}
       </div>
       <div className="row-app-show-page">
-        <b>Ad: </b>
+        <b>Ad:</b>
         {userInfoValue.ad}
       </div>
       <div className="row-app-show-page">
-        <b>Soyad: </b>
+        <b>Soyad:</b>
         {userInfoValue.soyad}
       </div>
       <div className="row-app-show-page">
-        <b>Yaş: </b>
+        <b>Yaş:</b>
         {userInfoValue.yas}
       </div>
       <div className="row-app-show-page">
-        <b>T.C Kimlik No: </b>
+        <b>T.C Kimlik No:</b>
         {userInfoValue.tcNo}
       </div>
       <div className="row-app-show-page">
-        <b>Başvuru Nedeni: </b>
+        <b>Başvuru Nedeni:</b>
         {userInfoValue.basvuruNedeni}
       </div>
       <div className="row-app-show-page">
-        <b>Adres: </b>
+        <b>Adres:</b>
         {userInfoValue.adres}
       </div>
       <div className="row-app-show-page">
-        <b>Başvuru Sonucu: </b>
+        <b>Başvuru Sonucu:</b>
         {userInfoValue.basvuruSonuc}
       </div>
     </>

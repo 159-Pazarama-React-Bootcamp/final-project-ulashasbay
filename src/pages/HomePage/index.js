@@ -12,12 +12,12 @@ function HomePage() {
   return (
     <div className="home-row">
       <div className="content-wrapper ">
-        <img className="home-img" src={HomePageImg} />
+        <img className="home-img" src={HomePageImg} alt="HomeImg" />
       </div>
       <div className="content-wrapper">
         <h1 className="home-header">Bizimle Çalışmak İster misiniz?</h1>
         <p>
-          Pazarama bünyesinde satış yapmak, çalışan veya stajyer olarak işe
+          Pazarama&#39;da satış yapmak, çalışan veya stajyer olarak işe
           başlamak için hemen başvur!
         </p>
         <button className="btn-home" onClick={handleClick}>

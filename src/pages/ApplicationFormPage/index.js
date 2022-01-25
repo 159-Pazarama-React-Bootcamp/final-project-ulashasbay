@@ -117,8 +117,8 @@ function ApplicationFormPage() {
           <Input
             name="tcNo"
             type="text"
-            text="TC Kimlik No"
-            placeholder="TC Kimlik No"
+            text="T.C. Kimlik No"
+            placeholder="T.C. Kimlik No"
             onChange={handleChange}
             onBlur={handleBlur}
           />
