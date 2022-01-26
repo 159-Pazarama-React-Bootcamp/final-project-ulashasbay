@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
-const AdminViewUserVal = yup.object().shape({
+const AdminApplicationInfoVal = yup.object().shape({
   basvuruSonuc: yup.string().required("Lütfen Yanıt Giriniz!"),
 });
 
-export default AdminViewUserVal;
+export default AdminApplicationInfoVal;

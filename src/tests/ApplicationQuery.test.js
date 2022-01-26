@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ApplicationNoCheckPage from "../pages/ApplicationNoCheckPage";
+import ApplicationQuery from "../pages/ApplicationQuery";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
@@ -13,10 +13,10 @@ const AllTheProviders = ({ children }) => {
   );
 };
 
-describe("ApplicationNoCheckPage Tests", () => {
+describe("ApplicationQuery Tests", () => {
   let basvuruNoInput, button;
   beforeEach(() => {
-    render(<ApplicationNoCheckPage />, { wrapper: AllTheProviders });
+    render(<ApplicationQuery />, { wrapper: AllTheProviders });
     basvuruNoInput = screen.getByPlaceholderText("Başvuru No");
     button = screen.getByRole("button");
   });

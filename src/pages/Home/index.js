@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import HomePageImg from "../../assets/images/homepage-img.png";
 import "./index.css";
 
-function HomePage() {
+function Home() {
   let navigate = useNavigate();
 
   const handleClick = () => {
@@ -28,4 +28,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default Home;

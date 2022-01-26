@@ -14,7 +14,7 @@ import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 import "./index.css";
 
-function AdminPage() {
+function AdminApplicationList() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const [users, setUsers] = useState([]);
@@ -107,4 +107,4 @@ function AdminPage() {
   );
 }
 
-export default AdminPage;
+export default AdminApplicationList;

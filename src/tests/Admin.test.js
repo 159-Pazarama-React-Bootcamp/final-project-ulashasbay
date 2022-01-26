@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import AdminLoginPage from "../pages/AdminLoginPage";
+import Admin from "../pages/Admin";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
@@ -13,10 +13,10 @@ const AllTheProviders = ({ children }) => {
   );
 };
 
-describe("AdminLoginPage Tests", () => {
+describe("Admin Tests", () => {
   let usernameInput, passwordInput, button;
   beforeEach(() => {
-    render(<AdminLoginPage />, { wrapper: AllTheProviders });
+    render(<Admin />, { wrapper: AllTheProviders });
     usernameInput = screen.getByPlaceholderText("Kullanıcı Adı");
     passwordInput = screen.getByPlaceholderText("Şifre");
     button = screen.getByText("Giriş");

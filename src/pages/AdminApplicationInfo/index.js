@@ -3,13 +3,13 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import AdminViewUserVal from "../../schema/AdminViewUserVal";
+import AdminApplicationInfoVal from "../../schema/AdminApplicationInfoVal";
 import AppInfoField from "../../components/AppInfoField";
 import TextArea from "../../components/TextArea";
 import { useSelector } from "react-redux";
 import "./index.css";
 
-function AdminUserInfoPage() {
+function AdminApplicationInfo() {
   let navigate = useNavigate();
 
   const appIdValue = useSelector((state) => state.appId.value);
@@ -35,7 +35,7 @@ function AdminUserInfoPage() {
       onSubmit: (values) => {
         updateNote(appIdValue, values.basvuruSonuc);
       },
-      validationSchema: AdminViewUserVal,
+      validationSchema: AdminApplicationInfoVal,
     }
   );
   return (
@@ -70,4 +70,4 @@ function AdminUserInfoPage() {
   );
 }
 
-export default AdminUserInfoPage;
+export default AdminApplicationInfo;

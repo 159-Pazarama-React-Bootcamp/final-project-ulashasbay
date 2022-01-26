@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import Input from "../../components/Input";
 import FormSubmitBtn from "../../components/FormSubmitBtn";
-import ApplicationCheckVal from "../../schema/ApplicationCheckVal";
+import ApplicationQueryVal from "../../schema/ApplicationQueryVal";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 import "./index.css";
 
-function ApplicationNoCheckPage() {
+function ApplicationQuery() {
   const dispatch = useDispatch();
 
   let navigate = useNavigate();
@@ -36,7 +36,7 @@ function ApplicationNoCheckPage() {
       onSubmit: (values) => {
         getUser(values.basvuruNo);
       },
-      validationSchema: ApplicationCheckVal,
+      validationSchema: ApplicationQueryVal,
     }
   );
   return (
@@ -62,4 +62,4 @@ function ApplicationNoCheckPage() {
   );
 }
 
-export default ApplicationNoCheckPage;
+export default ApplicationQuery;

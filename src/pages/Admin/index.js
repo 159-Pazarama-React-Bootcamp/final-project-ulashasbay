@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { updateIsLoggedIn } from "../../redux/isLoggedIn/isLoggedInSlice";
 import "./index.css";
 
-function AdminLoginPage() {
+function Admin() {
   let navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -72,4 +72,4 @@ function AdminLoginPage() {
   );
 }
 
-export default AdminLoginPage;
+export default Admin;

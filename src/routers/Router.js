@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import AdminLoginPage from "../pages/AdminLoginPage";
-import ApplicationFormPage from "../pages/ApplicationFormPage";
-import AdminPage from "../pages/AdminPage";
-import ApplicationInfoPage from "../pages/ApplicationInfoPage";
-import AdminUserInfoPage from "../pages/AdminUserInfoPage";
-import HomePage from "../pages/HomePage";
-import ApplicationNoCheckPage from "../pages/ApplicationNoCheckPage";
+import Admin from "../pages/Admin";
+import ApplicationForm from "../pages/ApplicationForm";
+import AdminApplicationList from "../pages/AdminApplicationList";
+import ApplicationInfo from "../pages/ApplicationInfo";
+import AdminApplicationInfo from "../pages/AdminApplicationInfo";
+import Home from "../pages/Home";
+import ApplicationQuery from "../pages/ApplicationQuery";
 import NotFoundPage from "../pages/NotFoundPage";
 import PrivateRoute from "./PrivateRoute";
 import { useSelector } from "react-redux";
@@ -20,21 +20,21 @@ function Router() {
         <Route element={<PrivateRoute />}>
           <Route
             path={`/admin/basvuru/${appIdValue}`}
-            element={<AdminUserInfoPage />}
+            element={<AdminApplicationInfo />}
           />
         </Route>
-        <Route path="basvuru-basarili" element={<ApplicationInfoPage />} />
-        <Route
-          path={`/basvuru/${appIdValue}`}
-          element={<ApplicationInfoPage />}
-        />
+        <Route path="basvuru-basarili" element={<ApplicationInfo />} />
+        <Route path={`/basvuru/${appIdValue}`} element={<ApplicationInfo />} />
         <Route element={<PrivateRoute />}>
-          <Route path="admin/basvuru-listesi" element={<AdminPage />} />
+          <Route
+            path="admin/basvuru-listesi"
+            element={<AdminApplicationList />}
+          />
         </Route>
-        <Route path="admin" element={<AdminLoginPage />} />
-        <Route path="basvuru-olustur" element={<ApplicationFormPage />} />
-        <Route path="basvuru-sorgula" element={<ApplicationNoCheckPage />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="admin" element={<Admin />} />
+        <Route path="basvuru-olustur" element={<ApplicationForm />} />
+        <Route path="basvuru-sorgula" element={<ApplicationQuery />} />
+        <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

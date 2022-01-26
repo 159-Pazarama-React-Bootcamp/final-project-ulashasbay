@@ -13,7 +13,7 @@ import { updateAppId } from "../../redux/appId/appIdSlice";
 import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 import "./index.css";
 
-function ApplicationFormPage() {
+function ApplicationForm() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -171,4 +171,4 @@ function ApplicationFormPage() {
   );
 }
 
-export default ApplicationFormPage;
+export default ApplicationForm;

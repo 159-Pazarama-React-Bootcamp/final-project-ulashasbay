@@ -2,7 +2,7 @@ import React from "react";
 import AppInfoField from "../../components/AppInfoField";
 import "./index.css";
 
-function ApplicationInfoPage() {
+function ApplicationInfo() {
   return (
     <div className="app-info-container">
       <h1>Başvuru Bilgileri</h1>
@@ -13,4 +13,4 @@ function ApplicationInfoPage() {
   );
 }
 
-export default ApplicationInfoPage;
+export default ApplicationInfo;
