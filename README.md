@@ -1,3 +1,47 @@
+# Project Link
+### https://pazarama-react-final-project-ulas.netlify.app/
+
+# Installation
+``` npm install ```
+
+#### ``` .env ``` file configs
+
+
+``` 
+REACT_APP_FIREBASE_API_KEY=AIzaSyDNO3vhPx_3CoeNL1CmhFpSHSQFOtBEKzw
+REACT_APP_FIREBASE_AUTH_DOMAIN=final-project-ulas-dev.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=final-project-ulas-dev
+REACT_APP_FIREBASE_STORAGE_BUCKET=final-project-ulas-dev.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=45399929716
+REACT_APP_FIREBASE_APP_ID=1:45399929716:web:51dfa5a597db1bc466b221
+```
+
+# Technologies
+
+- React
+
+- Redux
+
+- Firebase
+
+- Formik
+
+- Yup
+
+- React Router Dom V6
+
+- Eslint
+
+# Screenshots
+![Homepage](./public/Homepage.png "Homepage")
+![AppSuccessfu](./public/Basvuru-basarili.png "AppSuccessful")
+![AdminAppList](./public/admin-basvuru-listesi.png "AdminAppList")
+![mobile-menu](./public/mobile-menu.png "mobile-menu")
+![basvuru-formu](./public/basvuru-formu.png "basvuru-formu")
+![ApplicationQuery](./public/basvuru-sorgula.png "ApplicationQuery")
+![basvuru-basarili-responsive](./public/basvuru-basarili-responsive.png "basvuru-basarili-responsive")
+
+
 ## Bitirme projesi
 ### Başvuru / ticket yönetim sistemi
 
