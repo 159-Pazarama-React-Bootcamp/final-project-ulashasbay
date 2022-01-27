@@ -16,7 +16,7 @@ function ApplicationQuery() {
 
   let navigate = useNavigate();
 
-  const getUser = async (id) => {
+  const getUserApplicationInfo = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
       dispatch(updateAppId(id));
@@ -34,7 +34,7 @@ function ApplicationQuery() {
         applicationNo: "",
       },
       onSubmit: (values) => {
-        getUser(values.applicationNo);
+        getUserApplicationInfo(values.applicationNo);
       },
       validationSchema: ApplicationQueryVal,
     }

@@ -10,7 +10,6 @@ import "./index.css";
 
 function Admin() {
   let navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(

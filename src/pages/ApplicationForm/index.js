@@ -20,7 +20,11 @@ function ApplicationForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgres, setUploadProgress] = useState("");
 
-  const fileOnChange = (values) => {
+  // Başvuru formuna kullanıcı tarafından fotograf eklendiğinde form submit edilirken çalışan fonksiyon
+  // - Fotografı firebase storage a upload ediyor
+  // - Upload edilen Fotografın url sini alıp kullanıcı başvuru bilgilerine ekliyor
+  // - Kullanıcı başvuru bilgilerini firebase database e upload ediyor
+  const createApplicationWithImg = (values) => {
     const file = values.imageUrl;
     const storageRef = ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -37,14 +41,16 @@ function ApplicationForm() {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           values.imageUrl = downloadURL;
-          createUser(values);
+          createApplication(values);
         });
       }
     );
   };
 
+  // Başvuru formuna kullanıcı tarafından fotograf eklenmediğinde form submit edilirken çalışan fonksiyon
+  // Kullanıcı başvuru bilgilerini Firebase Database e upload ediyor
   const userColRef = collection(db, "applications");
-  const createUser = async (data) => {
+  const createApplication = async (data) => {
     const docRef = await addDoc(userColRef, data);
     dispatch(updateAppId(docRef.id));
     dispatch(updateUserInfo(data));
@@ -68,14 +74,14 @@ function ApplicationForm() {
       applicationReason: "",
       address: "",
       applicationStatus: "Bekliyor",
-      applicationResult: "Yanıt Bekleniyor",
+      applicationResult: "Belirsiz",
       applicationDate: new Date().toLocaleString().slice(0, 10),
     },
     onSubmit: (values) => {
       if (!("imageUrl" in values)) {
-        createUser(values);
+        createApplication(values);
       } else {
-        fileOnChange(values);
+        createApplicationWithImg(values);
       }
     },
     validationSchema: ApplicationFormVal,

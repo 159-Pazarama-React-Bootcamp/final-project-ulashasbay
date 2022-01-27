@@ -20,7 +20,8 @@ function AdminApplicationList() {
   const [users, setUsers] = useState([]);
   const userColRef = collection(db, "applications");
 
-  const getUser = async (id) => {
+  // Admin sayfasındaki görüntüle butonuna tıklandığında çalışan fonksiyon
+  const getUserApplicationInfo = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));
     if (noteSnapshot.exists()) {
       dispatch(updateAppId(id));
@@ -31,7 +32,8 @@ function AdminApplicationList() {
     }
   };
 
-  const deleteUser = async (id) => {
+  // Kullanıcı başvurusunu firebase den silen fonksiyon
+  const deleteUserApplication = async (id) => {
     const userDoc = doc(db, "applications", id);
     await deleteDoc(userDoc);
   };
@@ -86,13 +88,13 @@ function AdminApplicationList() {
                   <td data-label="İşlemler">
                     <button
                       className="table-delete-btn"
-                      onClick={() => deleteUser(item.id)}
+                      onClick={() => deleteUserApplication(item.id)}
                     >
                       Sil
                     </button>
                     <button
                       className="table-view-btn"
-                      onClick={() => getUser(item.id)}
+                      onClick={() => getUserApplicationInfo(item.id)}
                     >
                       Görüntüle
                     </button>

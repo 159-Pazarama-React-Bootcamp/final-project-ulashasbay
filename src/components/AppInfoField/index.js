@@ -21,6 +21,10 @@ function AppInfoField() {
         {appIdValue}
       </div>
       <div className="row-app-show-page">
+        <b>T.C. Kimlik No:</b>
+        {userInfoValue.tcNo}
+      </div>
+      <div className="row-app-show-page">
         <b>Ad:</b>
         {userInfoValue.name}
       </div>
@@ -33,16 +37,16 @@ function AppInfoField() {
         {userInfoValue.age}
       </div>
       <div className="row-app-show-page">
-        <b>T.C Kimlik No:</b>
-        {userInfoValue.tcNo}
+        <b>Adres:</b>
+        {userInfoValue.address}
       </div>
       <div className="row-app-show-page">
         <b>Başvuru Nedeni:</b>
         {userInfoValue.applicationReason}
       </div>
       <div className="row-app-show-page">
-        <b>Adres:</b>
-        {userInfoValue.address}
+        <b>Başvuru Durumu:</b>
+        {userInfoValue.applicationStatus}
       </div>
       <div className="row-app-show-page">
         <b>Başvuru Sonucu:</b>

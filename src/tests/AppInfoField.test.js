@@ -31,7 +31,7 @@ describe("AppInfoField Test", () => {
     const yas = screen.getByText("Yaş:");
     expect(yas).toBeInTheDocument();
 
-    const tcNo = screen.getByText("T.C Kimlik No:");
+    const tcNo = screen.getByText("T.C. Kimlik No:");
     expect(tcNo).toBeInTheDocument();
 
     const basvuruNedeni = screen.getByText("Başvuru Nedeni:");

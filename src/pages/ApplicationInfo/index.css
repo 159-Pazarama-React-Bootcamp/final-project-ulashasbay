@@ -21,13 +21,13 @@
 }
 
 .app-info-status {
-  background: #edf7fa;
+  background: #f3fdf7;
   max-width: 400px;
   width: 100%;
-  padding: 58px 44px 20px 44px;
-  border: 1px solid #e1e2f0;
+  padding: 20px 44px 20px 44px;
+  border: 1px solid #b0cac6;
   border-radius: 4px;
-  box-shadow: 0 0 5px 0 rgba(42, 45, 48, 0.12);
+  box-shadow: 0 0 3px 0 rgba(41, 42, 46, 0.12);
   transition: all 0.3s ease;
   margin-bottom: 20px;
 }

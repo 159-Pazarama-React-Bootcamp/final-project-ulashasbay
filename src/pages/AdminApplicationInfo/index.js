@@ -11,14 +11,14 @@ import "./index.css";
 
 function AdminApplicationInfo() {
   let navigate = useNavigate();
-
   const appIdValue = useSelector((state) => state.appId.value);
 
   const handleClickBack = () => {
     navigate("/admin/basvuru-listesi");
   };
 
-  const updateNote = async (id, change) => {
+  // Admin tarafından verilen yanıtı/başvuru sonucunu firebase de güncelleyen fonksiyon
+  const updateApplicationResult = async (id, change) => {
     const appRef = doc(db, "applications", id);
     await updateDoc(appRef, {
       applicationResult: change,
@@ -33,7 +33,7 @@ function AdminApplicationInfo() {
         applicationResult: "",
       },
       onSubmit: (values) => {
-        updateNote(appIdValue, values.applicationResult);
+        updateApplicationResult(appIdValue, values.applicationResult);
       },
       validationSchema: AdminApplicationInfoVal,
     }
@@ -50,9 +50,11 @@ function AdminApplicationInfo() {
             placeholder="Yanıt"
             onChange={handleChange}
             onBlur={handleBlur}
-          />          
+          />
           {errors.applicationResult && touched.applicationResult && (
-            <span className="admin-user-errors">{errors.applicationResult}</span>
+            <span className="admin-user-errors">
+              {errors.applicationResult}
+            </span>
           )}
         </div>
         <button className="accept-button" type="submit">

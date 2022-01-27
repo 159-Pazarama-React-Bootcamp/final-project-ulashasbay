@@ -1,26 +1,33 @@
 import * as yup from "yup";
 
 const ApplicationFormVal = yup.object().shape({
-  name: yup.string().required("Lütfen Adınızı Giriniz!"),
-  surname: yup.string().required("Lütfen Soyadınızı Giriniz!"),
+  name: yup
+    .string()
+    .required("Lütfen Adınızı Giriniz!")
+    .matches(/^([^0-9]*)$/, "Adınız Rakam İçermemelidir!"),
+  surname: yup
+    .string()
+    .required("Lütfen Soyadınızı Giriniz!")
+    .matches(/^([^0-9]*)$/, "Soyadınız Rakam İçermemelidir!"),
   age: yup
     .number("Lütfen Yaşınızı Doğru Giriniz!")
     .required("Lütfen Yaşınızı Giriniz!")
     .positive("Lütfen Yaşınızı Doğru Giriniz!")
     .integer("Lütfen Yaşınızı Doğru Giriniz!")
     .typeError("Lütfen Yaşınızı Doğru Giriniz!")
-    .min(16, "Yaşınız 16'dan Büyük Olmalı!")
+    .min(16, "Yaşınız 16'dan Büyük Olmalıdır!")
     .max(150, "Lütfen Yaşınızı Doğru Giriniz!"),
   tcNo: yup
     .string()
     .required("Lütfen T.C. Kimlik Numaranızı Giriniz!")
     .matches(
       new RegExp("^[0-9]{11,11}$"),
-      "Lütfen T.C. Kimlik Numaranızı Doğru Giriniz!"
+      "T.C. Kimlik Numaranız 11 Haneli Olmalı ve Yalnızca Rakam İçermelidir!"
     ),
   applicationReason: yup
     .string()
-    .required("Lütfen Başvuru Nedeninizi Giriniz!"),
+    .required("Lütfen Başvuru Nedeninizi Giriniz!")
+    .matches(/^([^0-9]*)$/, "Başvuru Nedeniniz Rakam İçermemelidir!"),
   address: yup.string().required("Lütfen Adres Bilginizi Giriniz!"),
   imageUrl: yup
     .mixed()
@@ -36,10 +43,7 @@ const ApplicationFormVal = yup.object().shape({
       "Dosya formatı .jpg .jpeg .png olmalıdır!",
       (value) =>
         !value ||
-        (value &&
-          ["image/jpg", "image/jpeg", "image/png"].includes(
-            value.type
-          ))
+        (value && ["image/jpg", "image/jpeg", "image/png"].includes(value.type))
     ),
 });
 
