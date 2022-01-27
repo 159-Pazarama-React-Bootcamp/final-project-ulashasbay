@@ -1,5 +1,9 @@
 # Project Link
 ### https://pazarama-react-final-project-ulas.netlify.app/
+### Admin Login 
+username: kodluyoruz
+
+password: bootcamp109
 
 # Installation
 ``` npm install ```
