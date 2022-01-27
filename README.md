@@ -15,6 +15,8 @@ REACT_APP_FIREBASE_STORAGE_BUCKET=final-project-ulas-dev.appspot.com
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID=45399929716
 REACT_APP_FIREBASE_APP_ID=1:45399929716:web:51dfa5a597db1bc466b221
 ```
+# Test
+``` npm run test ```
 
 # Technologies
 
