@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import { createMemoryHistory } from "history";
 import userEvent from "@testing-library/user-event";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -57,4 +58,17 @@ describe("Navbar Test", () => {
     userEvent.click(basvuruSorgulaLink);
     expect(location.pathname).toEqual("/basvuru-sorgula");
   });
+});
+
+test("Navbar renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Navbar />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

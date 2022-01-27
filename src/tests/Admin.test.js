@@ -4,6 +4,7 @@ import Admin from "../pages/Admin";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -55,4 +56,17 @@ describe("Admin Tests", () => {
   test("Giriş button type is submit", () => {
     expect(button.type).toEqual("submit");
   });
+});
+
+test("Admin renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Admin />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

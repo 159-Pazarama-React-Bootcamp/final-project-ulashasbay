@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin renders correctly 1`] = `
+<div
+  className="admin-login-container"
+>
+  <h1>
+    Giriş Yap
+  </h1>
+  <form
+    className="login-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="login-row"
+    >
+      <label
+        htmlFor="username"
+      >
+        Kullanıcı Adı
+      </label>
+      <input
+        name="username"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Kullanıcı Adı"
+        type="text"
+      />
+    </div>
+    <div
+      className="login-row"
+    >
+      <label
+        htmlFor="password"
+      >
+        Şifre
+      </label>
+      <input
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Şifre"
+        type="password"
+      />
+    </div>
+    <button
+      className="app-check-button"
+      type="submit"
+    >
+      Giriş
+    </button>
+  </form>
+</div>
+`;

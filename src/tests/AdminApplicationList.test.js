@@ -4,6 +4,7 @@ import AdminApplicationList from "../pages/AdminApplicationList";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -22,4 +23,17 @@ describe("AdminApplicationList Tests", () => {
     const table = screen.getByRole("table");
     expect(table).toBeInTheDocument();
   });
+});
+
+test("AdminApplicationList renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <AdminApplicationList />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

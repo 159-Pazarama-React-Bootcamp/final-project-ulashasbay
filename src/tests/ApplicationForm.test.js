@@ -4,6 +4,7 @@ import ApplicationForm from "../pages/ApplicationForm";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -87,4 +88,17 @@ describe("ApplicationForm Tests", () => {
     const button = screen.getByText("Gönder");
     expect(button.type).toEqual("submit");
   });
+});
+
+test("ApplicationForm renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <ApplicationForm />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

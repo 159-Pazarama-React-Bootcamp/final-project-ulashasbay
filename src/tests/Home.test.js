@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -27,4 +28,17 @@ describe("HomePage Tests", () => {
     const button = screen.getByRole("button");
     expect(button).toBeInTheDocument();
   });
+});
+
+test("Home renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Home />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

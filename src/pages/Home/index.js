@@ -9,6 +9,7 @@ function Home() {
   const handleClick = () => {
     navigate("/basvuru-olustur");
   };
+
   return (
     <div className="home-row">
       <div className="content-wrapper ">
@@ -17,8 +18,8 @@ function Home() {
       <div className="content-wrapper">
         <h1 className="home-header">Bizimle Çalışmak İster misiniz?</h1>
         <p>
-          Pazarama&#39;da satış yapmak, yazılımcı ya da stajyer olarak işe başlamak
-          için hemen başvur!
+          Pazarama&#39;da satış yapmak, yazılımcı ya da stajyer olarak işe
+          başlamak için hemen başvur!
         </p>
         <button className="btn-home" onClick={handleClick}>
           Hemen Başvur!

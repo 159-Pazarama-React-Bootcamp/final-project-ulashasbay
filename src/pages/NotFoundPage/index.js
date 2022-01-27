@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./index.css"
+import "./index.css";
 
 function NotFoundPage() {
   return (
@@ -10,9 +10,7 @@ function NotFoundPage() {
         <h3>The page you seek does not exist</h3>
       </div>
       <div className="footer">
-        <Link to="/">
-            Go Home
-        </Link>
+        <Link to="/">Go Home</Link>
       </div>
     </div>
   );

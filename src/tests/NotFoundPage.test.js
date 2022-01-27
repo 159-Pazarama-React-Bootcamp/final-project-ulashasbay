@@ -5,6 +5,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -29,4 +30,17 @@ describe("NotFoundPage Tests", () => {
     userEvent.click(button);
     expect(location.pathname).toEqual("/");
   });
+});
+
+test("NotFoundPage renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <NotFoundPage />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

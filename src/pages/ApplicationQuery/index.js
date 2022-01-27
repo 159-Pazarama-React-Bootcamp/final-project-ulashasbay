@@ -12,9 +12,8 @@ import { updateUserInfo } from "../../redux/userInfo/userInfoSlice";
 import "./index.css";
 
 function ApplicationQuery() {
-  const dispatch = useDispatch();
-
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const getUserApplicationInfo = async (id) => {
     const noteSnapshot = await getDoc(doc(db, "applications", id));

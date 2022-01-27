@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationSuccessful renders correctly 1`] = `
+<div
+  className="app-success-container"
+>
+  <span
+    className="success-message"
+  >
+    Başvurunuz başarıyla gerçekleşmiştir. Başvuru sürecinizi aşağıda size verilen başvuru numarası ile takip edebilirsiniz.
+  </span>
+  <h1>
+    Başvuru Bilgileri
+  </h1>
+  <div
+    className="app-success-status"
+  >
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Başvuru No:
+      </b>
+      
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        T.C. Kimlik No:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Ad:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Soyad:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Yaş:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Adres:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Başvuru Nedeni:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Başvuru Durumu:
+      </b>
+    </div>
+    <div
+      className="row-app-show-page"
+    >
+      <b>
+        Başvuru Sonucu:
+      </b>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationForm renders correctly 1`] = `
+<div
+  className="application-form-container"
+>
+  <h1>
+    Başvuru Formu
+  </h1>
+  <form
+    className="application-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="name"
+      >
+        Ad
+      </label>
+      <input
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Ad"
+        type="text"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="surname"
+      >
+        Soyad
+      </label>
+      <input
+        name="surname"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Soyad"
+        type="text"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="age"
+      >
+        Yaş
+      </label>
+      <input
+        name="age"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Yaş"
+        type="text"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="tcNo"
+      >
+        T.C. Kimlik No
+      </label>
+      <input
+        name="tcNo"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="T.C. Kimlik No"
+        type="text"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="applicationReason"
+      >
+        Başvuru Nedeni
+      </label>
+      <input
+        name="applicationReason"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Başvuru Nedeni"
+        type="text"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="address"
+      >
+        Adres
+      </label>
+      <textarea
+        name="address"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Adres"
+      />
+    </div>
+    <div
+      className="application-form-row"
+    >
+      <label
+        htmlFor="imageUrl"
+      >
+        Fotoğraf
+      </label>
+      <input
+        name="imageUrl"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Fotoğraf"
+        type="file"
+      />
+    </div>
+    <button
+      className="app-check-button"
+      disabled={false}
+      type="submit"
+    >
+      Gönder
+    </button>
+  </form>
+</div>
+`;

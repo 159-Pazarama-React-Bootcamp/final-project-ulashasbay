@@ -4,6 +4,7 @@ import AppInfoField from "../components/AppInfoField";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -43,4 +44,17 @@ describe("AppInfoField Test", () => {
     const basvuruSonucu = screen.getByText("Başvuru Sonucu:");
     expect(basvuruSonucu).toBeInTheDocument();
   });
+});
+
+test("AppInfoField renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <AppInfoField />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

@@ -1,7 +1,6 @@
-import "./App.css";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
-import Router from "./routers/Router";
+import Router from "./routing/Router";
 import { useDispatch } from "react-redux";
 import { updateIsLoggedIn } from "./redux/isLoggedIn/isLoggedInSlice";
 
@@ -19,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <Router />
     </div>

@@ -4,6 +4,7 @@ import ApplicationQuery from "../pages/ApplicationQuery";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
+import renderer from "react-test-renderer";
 
 const AllTheProviders = ({ children }) => {
   return (
@@ -41,4 +42,17 @@ describe("ApplicationQuery Tests", () => {
   test("Başvuru Sorgula button type is submit", () => {
     expect(button.type).toEqual("submit");
   });
+});
+
+test("ApplicationQuery renders correctly", () => {
+  const tree = renderer
+    .create(
+      <BrowserRouter>
+        <Provider store={store}>
+          <ApplicationQuery />
+        </Provider>
+      </BrowserRouter>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
