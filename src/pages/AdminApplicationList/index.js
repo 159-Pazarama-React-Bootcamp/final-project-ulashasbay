@@ -54,8 +54,8 @@ function AdminApplicationList() {
     <>
       <div className="select-dropdown">
         <select defaultValue="Bekliyor" onChange={handleSelectChange}>
-          <option value="Yanıtlandı">Yanıtlanan</option>
-          <option value="Bekliyor">Yanıtlanmayan</option>
+          <option value="Yanıtlandı">Yanıtlanmış</option>
+          <option value="Bekliyor">Yanıtlanmamış</option>
         </select>
       </div>
       <table className="table">
@@ -87,16 +87,16 @@ function AdminApplicationList() {
                   <td data-label="Başvuru No">{item.id}</td>
                   <td data-label="İşlemler">
                     <button
-                      className="table-delete-btn"
-                      onClick={() => deleteUserApplication(item.id)}
-                    >
-                      Sil
-                    </button>
-                    <button
                       className="table-view-btn"
                       onClick={() => getUserApplicationInfo(item.id)}
                     >
                       Görüntüle
+                    </button>
+                    <button
+                      className="table-delete-btn"
+                      onClick={() => deleteUserApplication(item.id)}
+                    >
+                      Sil
                     </button>
                   </td>
                 </tr>

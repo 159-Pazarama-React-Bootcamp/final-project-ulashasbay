@@ -12,12 +12,12 @@ Array [
       <option
         value="Yanıtlandı"
       >
-        Yanıtlanan
+        Yanıtlanmış
       </option>
       <option
         value="Bekliyor"
       >
-        Yanıtlanmayan
+        Yanıtlanmamış
       </option>
     </select>
   </div>,
