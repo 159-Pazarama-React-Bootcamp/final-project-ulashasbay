@@ -21,8 +21,8 @@ function AdminApplicationInfo() {
   const updateNote = async (id, change) => {
     const appRef = doc(db, "applications", id);
     await updateDoc(appRef, {
-      basvuruSonuc: change,
-      basvuruDurumu: "Yanıtlandı",
+      applicationResult: change,
+      applicationStatus: "Yanıtlandı",
     });
     navigate("/admin/basvuru-listesi");
   };
@@ -30,10 +30,10 @@ function AdminApplicationInfo() {
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
-        basvuruSonuc: "",
+        applicationResult: "",
       },
       onSubmit: (values) => {
-        updateNote(appIdValue, values.basvuruSonuc);
+        updateNote(appIdValue, values.applicationResult);
       },
       validationSchema: AdminApplicationInfoVal,
     }
@@ -46,13 +46,13 @@ function AdminApplicationInfo() {
         <div className="admin-user-row">
           <TextArea
             text="Yanıt"
-            name="basvuruSonuc"
+            name="applicationResult"
             placeholder="Yanıt"
             onChange={handleChange}
             onBlur={handleBlur}
           />          
-          {errors.basvuruSonuc && touched.basvuruSonuc && (
-            <span className="admin-user-errors">{errors.basvuruSonuc}</span>
+          {errors.applicationResult && touched.applicationResult && (
+            <span className="admin-user-errors">{errors.applicationResult}</span>
           )}
         </div>
         <button className="accept-button" type="submit">

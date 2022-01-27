@@ -103,6 +103,14 @@
   color: rgb(0, 0, 0);
 }
 
+.form-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 14rem;
+}
+
 @media (max-width: 960px) {
   .application-form-container {
     margin: 0 18px;

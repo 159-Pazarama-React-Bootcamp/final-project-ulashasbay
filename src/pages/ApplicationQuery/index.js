@@ -31,10 +31,10 @@ function ApplicationQuery() {
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
-        basvuruNo: "",
+        applicationNo: "",
       },
       onSubmit: (values) => {
-        getUser(values.basvuruNo);
+        getUser(values.applicationNo);
       },
       validationSchema: ApplicationQueryVal,
     }
@@ -45,15 +45,15 @@ function ApplicationQuery() {
       <form className="application-check-form" onSubmit={handleSubmit}>
         <div className="app-check-row">
           <Input
-            name="basvuruNo"
+            name="applicationNo"
             type="text"
             text="Başvuru Numarası"
             placeholder="Başvuru No"
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.basvuruNo && touched.basvuruNo && (
-            <span className="app-check-errors">{errors.basvuruNo}</span>
+          {errors.applicationNo && touched.applicationNo && (
+            <span className="app-check-errors">{errors.applicationNo}</span>
           )}
         </div>
         <FormSubmitBtn text="Başvuru Sorgula" />

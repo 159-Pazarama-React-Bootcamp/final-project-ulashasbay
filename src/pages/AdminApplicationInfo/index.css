@@ -33,12 +33,6 @@
   margin-bottom: 20px;
 }
 
-.row-app-show-page {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-}
-
 .admin-user-row {
   display: flex;
   flex-direction: column;

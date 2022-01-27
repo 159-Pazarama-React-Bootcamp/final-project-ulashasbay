@@ -32,12 +32,6 @@
   margin-bottom: 20px;
 }
 
-.row-app-show-page {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-}
-
 .success-message {
   background-color: #c4ffb8;
   font-size: 14px;

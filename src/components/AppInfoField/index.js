@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import "./index.css";
 
 function AppInfoField() {
   const appIdValue = useSelector((state) => state.appId.value);
@@ -7,12 +8,11 @@ function AppInfoField() {
 
   return (
     <>
-      {!(userInfoValue.fotograf === "") && (
+      {"imageUrl" in userInfoValue && (
         <img
           className="app-info-area-img"
           width="100px"
-          style={{ marginLeft: "36%", border: "solid 1px" }}
-          src={userInfoValue.fotograf}
+          src={userInfoValue.imageUrl}
           alt="img"
         />
       )}
@@ -22,15 +22,15 @@ function AppInfoField() {
       </div>
       <div className="row-app-show-page">
         <b>Ad:</b>
-        {userInfoValue.ad}
+        {userInfoValue.name}
       </div>
       <div className="row-app-show-page">
         <b>Soyad:</b>
-        {userInfoValue.soyad}
+        {userInfoValue.surname}
       </div>
       <div className="row-app-show-page">
         <b>Yaş:</b>
-        {userInfoValue.yas}
+        {userInfoValue.age}
       </div>
       <div className="row-app-show-page">
         <b>T.C Kimlik No:</b>
@@ -38,15 +38,15 @@ function AppInfoField() {
       </div>
       <div className="row-app-show-page">
         <b>Başvuru Nedeni:</b>
-        {userInfoValue.basvuruNedeni}
+        {userInfoValue.applicationReason}
       </div>
       <div className="row-app-show-page">
         <b>Adres:</b>
-        {userInfoValue.adres}
+        {userInfoValue.address}
       </div>
       <div className="row-app-show-page">
         <b>Başvuru Sonucu:</b>
-        {userInfoValue.basvuruSonuc}
+        {userInfoValue.applicationResult}
       </div>
     </>
   );

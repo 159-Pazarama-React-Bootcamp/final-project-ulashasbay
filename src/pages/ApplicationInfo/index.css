@@ -32,12 +32,6 @@
   margin-bottom: 20px;
 }
 
-.row-app-show-page {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 10px;
-}
-
 @media (max-width: 960px) {
   .app-info-container {
     margin: 0 18px;

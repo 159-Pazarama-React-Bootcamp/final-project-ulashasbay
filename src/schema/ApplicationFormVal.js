@@ -1,9 +1,9 @@
 import * as yup from "yup";
 
 const ApplicationFormVal = yup.object().shape({
-  ad: yup.string().required("Lütfen Adınızı Giriniz!"),
-  soyad: yup.string().required("Lütfen Soyadınızı Giriniz!"),
-  yas: yup
+  name: yup.string().required("Lütfen Adınızı Giriniz!"),
+  surname: yup.string().required("Lütfen Soyadınızı Giriniz!"),
+  age: yup
     .number("Lütfen Yaşınızı Doğru Giriniz!")
     .required("Lütfen Yaşınızı Giriniz!")
     .positive("Lütfen Yaşınızı Doğru Giriniz!")
@@ -18,8 +18,29 @@ const ApplicationFormVal = yup.object().shape({
       new RegExp("^[0-9]{11,11}$"),
       "Lütfen T.C. Kimlik Numaranızı Doğru Giriniz!"
     ),
-  basvuruNedeni: yup.string().required("Lütfen Başvuru Nedeninizi Giriniz!"),
-  adres: yup.string().required("Lütfen Adres Bilginizi Giriniz!"),
+  applicationReason: yup
+    .string()
+    .required("Lütfen Başvuru Nedeninizi Giriniz!"),
+  address: yup.string().required("Lütfen Adres Bilginizi Giriniz!"),
+  imageUrl: yup
+    .mixed()
+    .nullable()
+    .notRequired()
+    .test(
+      "FILE_SIZE",
+      "Dosya boyutu en fazla 50 mb olabilir!",
+      (value) => !value || (value && value.size <= 50000000)
+    )
+    .test(
+      "FILE_FORMAT",
+      "Dosya formatı .jpg .jpeg .png olmalıdır!",
+      (value) =>
+        !value ||
+        (value &&
+          ["image/jpg", "image/jpeg", "image/png"].includes(
+            value.type
+          ))
+    ),
 });
 
 export default ApplicationFormVal;

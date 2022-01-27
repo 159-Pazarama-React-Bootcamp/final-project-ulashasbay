@@ -72,16 +72,16 @@ function AdminApplicationList() {
         </thead>
         <tbody>
           {users.map((item) => {
-            if (item.basvuruDurumu === selectValue) {
+            if (item.applicationStatus === selectValue) {
               return (
                 <tr key={item.id}>
-                  <td data-label="Başvuru Tarihi">{item.basvuruTarihi}</td>
-                  <td data-label="Ad">{item.ad}</td>
-                  <td data-label="Soyad">{item.soyad}</td>
-                  <td data-label="Yaş">{item.yas}</td>
-                  <td data-label="Başvuru Nedeni">{item.basvuruNedeni}</td>
-                  <td data-label="Başvuru Durumu">{item.basvuruDurumu}</td>
-                  <td data-label="Başvuru Sonucu">{item.basvuruSonuc}</td>
+                  <td data-label="Başvuru Tarihi">{item.applicationDate}</td>
+                  <td data-label="Ad">{item.name}</td>
+                  <td data-label="Soyad">{item.surname}</td>
+                  <td data-label="Yaş">{item.age}</td>
+                  <td data-label="Başvuru Nedeni">{item.applicationReason}</td>
+                  <td data-label="Başvuru Durumu">{item.applicationStatus}</td>
+                  <td data-label="Başvuru Sonucu">{item.applicationResult}</td>
                   <td data-label="Başvuru No">{item.id}</td>
                   <td data-label="İşlemler">
                     <button

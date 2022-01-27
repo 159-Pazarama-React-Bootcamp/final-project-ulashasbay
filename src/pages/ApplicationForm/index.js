@@ -17,11 +17,11 @@ function ApplicationForm() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [imageUrl, setImageUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [uploadProgres, setUploadProgress] = useState("");
 
-  const fileOnChange = (e) => {
-    const file = e.target.files[0];
+  const fileOnChange = (values) => {
+    const file = values.imageUrl;
     const storageRef = ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
@@ -30,12 +30,14 @@ function ApplicationForm() {
         const prog = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
+        setIsLoading(true);
         setUploadProgress(prog);
       },
       (error) => console.log(error),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setImageUrl(downloadURL);
+          values.imageUrl = downloadURL;
+          createUser(values);
         });
       }
     );
@@ -47,127 +49,144 @@ function ApplicationForm() {
     dispatch(updateAppId(docRef.id));
     dispatch(updateUserInfo(data));
     navigate(`/basvuru-basarili`);
+    setIsLoading(false);
   };
 
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
-    {
-      initialValues: {
-        ad: "",
-        soyad: "",
-        yas: "",
-        tcNo: "",
-        basvuruNedeni: "",
-        adres: "",
-        basvuruDurumu: "Bekliyor",
-        fotograf: imageUrl,
-        basvuruSonuc: "Yanıt Bekleniyor",
-        basvuruTarihi: new Date().toLocaleString().slice(0, 10),
-      },
-      onSubmit: (values) => {
-        values.fotograf = imageUrl;
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    errors,
+    touched,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      name: "",
+      surname: "",
+      age: "",
+      tcNo: "",
+      applicationReason: "",
+      address: "",
+      applicationStatus: "Bekliyor",
+      applicationResult: "Yanıt Bekleniyor",
+      applicationDate: new Date().toLocaleString().slice(0, 10),
+    },
+    onSubmit: (values) => {
+      if (!("imageUrl" in values)) {
         createUser(values);
-      },
-      validationSchema: ApplicationFormVal,
-    }
-  );
+      } else {
+        fileOnChange(values);
+      }
+    },
+    validationSchema: ApplicationFormVal,
+  });
   return (
-    <div className="application-form-container">
-      <h1>Başvuru Formu</h1>
-      <form className="application-form" onSubmit={handleSubmit}>
-        <div className="application-form-row">
-          <Input
-            name="ad"
-            type="text"
-            text="Ad"
-            placeholder="Ad"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.ad && touched.ad && (
-            <span className="app-form-errors">{errors.ad}</span>
-          )}
+    <>
+      {isLoading ? (
+        <div className="form-loading">Gönderiliyor... %{uploadProgres}</div>
+      ) : (
+        <div className="application-form-container">
+          <h1>Başvuru Formu</h1>
+          <form className="application-form" onSubmit={handleSubmit}>
+            <div className="application-form-row">
+              <Input
+                name="name"
+                type="text"
+                text="Ad"
+                placeholder="Ad"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.name && touched.name && (
+                <span className="app-form-errors">{errors.name}</span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <Input
+                name="surname"
+                type="text"
+                text="Soyad"
+                placeholder="Soyad"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.surname && touched.surname && (
+                <span className="app-form-errors">{errors.surname}</span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <Input
+                name="age"
+                type="text"
+                text="Yaş"
+                placeholder="Yaş"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.age && touched.age && (
+                <span className="app-form-errors">{errors.age}</span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <Input
+                name="tcNo"
+                type="text"
+                text="T.C. Kimlik No"
+                placeholder="T.C. Kimlik No"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.tcNo && touched.tcNo && (
+                <span className="app-form-errors">{errors.tcNo}</span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <Input
+                name="applicationReason"
+                type="text"
+                text="Başvuru Nedeni"
+                placeholder="Başvuru Nedeni"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.applicationReason && touched.applicationReason && (
+                <span className="app-form-errors">
+                  {errors.applicationReason}
+                </span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <TextArea
+                text="Adres"
+                name="address"
+                placeholder="Adres"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              {errors.address && touched.address && (
+                <span className="app-form-errors">{errors.address}</span>
+              )}
+            </div>
+            <div className="application-form-row">
+              <Input
+                name="imageUrl"
+                type="file"
+                text="Fotoğraf"
+                placeholder="Fotoğraf"
+                onChange={(event) => {
+                  setFieldValue("imageUrl", event.currentTarget.files[0]);
+                }}
+                onBlur={handleBlur}
+              />
+              {errors.imageUrl && touched.imageUrl && (
+                <span className="app-form-errors">{errors.imageUrl}</span>
+              )}
+            </div>
+            <FormSubmitBtn disabled={isLoading} text="Gönder" />
+          </form>
         </div>
-        <div className="application-form-row">
-          <Input
-            name="soyad"
-            type="text"
-            text="Soyad"
-            placeholder="Soyad"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.soyad && touched.soyad && (
-            <span className="app-form-errors">{errors.soyad}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="yas"
-            type="text"
-            text="Yaş"
-            placeholder="Yaş"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.yas && touched.yas && (
-            <span className="app-form-errors">{errors.yas}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="tcNo"
-            type="text"
-            text="T.C. Kimlik No"
-            placeholder="T.C. Kimlik No"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.tcNo && touched.tcNo && (
-            <span className="app-form-errors">{errors.tcNo}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="basvuruNedeni"
-            type="text"
-            text="Başvuru Nedeni"
-            placeholder="Başvuru Nedeni"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.basvuruNedeni && touched.basvuruNedeni && (
-            <span className="app-form-errors">{errors.basvuruNedeni}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <TextArea
-            text="Adres"
-            name="adres"
-            placeholder="Adres"
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />
-          {errors.adres && touched.adres && (
-            <span className="app-form-errors">{errors.adres}</span>
-          )}
-        </div>
-        <div className="application-form-row">
-          <Input
-            name="fotograf"
-            type="file"
-            text="Fotoğraf"
-            placeholder="Fotoğraf"
-            onChange={fileOnChange}
-          />
-          {!(uploadProgres === "") && (
-            <span className="file-upload-progress">
-              Dosya Yükleniyor: %{uploadProgres}
-            </span>
-          )}
-        </div>
-        <FormSubmitBtn text="Gönder" />
-      </form>
-    </div>
+      )}
+    </>
   );
 }
 
