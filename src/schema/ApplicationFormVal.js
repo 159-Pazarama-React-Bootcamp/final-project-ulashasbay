@@ -3,10 +3,12 @@ import * as yup from "yup";
 const ApplicationFormVal = yup.object().shape({
   name: yup
     .string()
+    .trim()
     .required("Lütfen Adınızı Giriniz!")
     .matches(/^([^0-9]*)$/, "Adınız Rakam İçermemelidir!"),
   surname: yup
     .string()
+    .trim()
     .required("Lütfen Soyadınızı Giriniz!")
     .matches(/^([^0-9]*)$/, "Soyadınız Rakam İçermemelidir!"),
   age: yup
@@ -26,9 +28,10 @@ const ApplicationFormVal = yup.object().shape({
     ),
   applicationReason: yup
     .string()
+    .trim()
     .required("Lütfen Başvuru Nedeninizi Giriniz!")
     .matches(/^([^0-9]*)$/, "Başvuru Nedeniniz Rakam İçermemelidir!"),
-  address: yup.string().required("Lütfen Adres Bilginizi Giriniz!"),
+  address: yup.string().trim().required("Lütfen Adres Bilginizi Giriniz!"),
   imageUrl: yup
     .mixed()
     .nullable()
