@@ -8,7 +8,7 @@ password: bootcamp109
 # Installation
 ``` npm install ```
 
-#### ``` .env ``` file configs
+#### After Installation create ``` .env ``` file and copy following configs into it
 
 
 ``` 
@@ -35,6 +35,10 @@ REACT_APP_FIREBASE_APP_ID=1:45399929716:web:51dfa5a597db1bc466b221
 - Yup
 
 - React Router Dom V6
+
+- Jest
+
+- React Testing Library
 
 - Eslint
 

@@ -45,7 +45,7 @@ function AdminApplicationInfo() {
         <AppInfoField />
         <div className="admin-user-row">
           <TextArea
-            text="Yanıt"
+            text="Başvuru Sonucu"
             name="applicationResult"
             placeholder="Yanıt"
             onChange={handleChange}
