@@ -30,6 +30,8 @@ function Admin() {
         }
       },
       validationSchema: AdminLoginVal,
+      validateOnChange: false,
+      validateOnBlur: false,
     }
   );
 
