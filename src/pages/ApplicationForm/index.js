@@ -75,7 +75,13 @@ function ApplicationForm() {
       address: "",
       applicationStatus: "Bekliyor",
       applicationResult: "Belirsiz",
-      applicationDate: new Date().toLocaleString().slice(0, 10),
+      applicationDate: new Date()
+        .toLocaleString("en-GB", {
+          month: "2-digit",
+          day: "2-digit",
+          year: "numeric",
+        })
+        .slice(0, 10),
     },
     onSubmit: (values) => {
       if (!("imageUrl" in values)) {
