@@ -1,6 +1,6 @@
-# Project Link
+# Job Application Management App
 ### https://pazarama-react-final-project-ulas.netlify.app/
-### Admin Login 
+## Admin Login 
 username: kodluyoruz
 
 password: bootcamp109
