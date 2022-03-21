@@ -1,3 +1,57 @@
+# Job Application Management App
+### https://pazarama-react-final-project-ulas.netlify.app/
+## Admin Login 
+username: kodluyoruz
+
+password: bootcamp109
+
+# Installation
+``` npm install ```
+
+#### After Installation create ``` .env ``` file and copy following configs into it
+
+
+``` 
+REACT_APP_FIREBASE_API_KEY=AIzaSyDNO3vhPx_3CoeNL1CmhFpSHSQFOtBEKzw
+REACT_APP_FIREBASE_AUTH_DOMAIN=final-project-ulas-dev.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=final-project-ulas-dev
+REACT_APP_FIREBASE_STORAGE_BUCKET=final-project-ulas-dev.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=45399929716
+REACT_APP_FIREBASE_APP_ID=1:45399929716:web:51dfa5a597db1bc466b221
+```
+# Test
+``` npm run test ```
+
+# Technologies
+
+- React
+
+- Redux
+
+- Firebase
+
+- Formik
+
+- Yup
+
+- React Router Dom V6
+
+- Jest
+
+- React Testing Library
+
+- Eslint
+
+# Screenshots
+![Homepage](./public/Homepage.png "Homepage")
+![AppSuccessfu](./public/Basvuru-basarili.png "AppSuccessful")
+![AdminAppList](./public/admin-basvuru-listesi.png "AdminAppList")
+![mobile-menu](./public/mobile-menu.png "mobile-menu")
+![basvuru-formu](./public/basvuru-formu.png "basvuru-formu")
+![ApplicationQuery](./public/basvuru-sorgula.png "ApplicationQuery")
+![basvuru-basarili-responsive](./public/basvuru-basarili-responsive.png "basvuru-basarili-responsive")
+
+
 ## Bitirme projesi
 ### Başvuru / ticket yönetim sistemi
 

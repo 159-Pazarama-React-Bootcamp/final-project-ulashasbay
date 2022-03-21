@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppInfoField renders correctly 1`] = `
+Array [
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Başvuru No:
+    </b>
+    
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      T.C. Kimlik No:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Ad:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Soyad:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Yaş:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Adres:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Başvuru Nedeni:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Başvuru Durumu:
+    </b>
+  </div>,
+  <div
+    className="row-app-show-page"
+  >
+    <b>
+      Başvuru Sonucu:
+    </b>
+  </div>,
+]
+`;

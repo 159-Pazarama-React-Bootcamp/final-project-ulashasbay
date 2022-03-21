@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ApplicationQuery renders correctly 1`] = `
+<div
+  className="app-check-container"
+>
+  <h1>
+    Başvuru Sorgula
+  </h1>
+  <form
+    className="application-check-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="app-check-row"
+    >
+      <label
+        htmlFor="applicationNo"
+      >
+        Başvuru Numarası
+      </label>
+      <input
+        name="applicationNo"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Başvuru No"
+        type="text"
+      />
+    </div>
+    <button
+      className="app-check-button"
+      type="submit"
+    >
+      Başvuru Sorgula
+    </button>
+  </form>
+</div>
+`;
